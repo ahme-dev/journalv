@@ -18,8 +18,9 @@ export default {
 <style>
 :root {
   --bg: #222;
-  --bg1: #333;
   --fg: #eee;
+  --main: #333;
+  --accent: #fb5;
 }
 
 *,
@@ -28,7 +29,7 @@ export default {
   padding: 0;
   margin: 0;
   border: 0;
-  transition: 0.1s;
+  transition: 0.2s;
   box-sizing: border-box;
   font-family: inherit;
   color: inherit;
@@ -58,11 +59,7 @@ export default {
   border: solid 2px blue;
 }
 
-.container > * {
-  border-radius: 1rem;
-  padding: 1rem;
-  width: 100%;
-
-  background-color: var(--bg1);
+.container * {
+  background-color: var(--main);
 }
 </style>
