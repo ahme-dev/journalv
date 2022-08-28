@@ -55,8 +55,6 @@ export default {
   grid-template-rows: 9fr 1fr;
   gap: 1rem;
   padding: 2rem;
-
-  border: solid 2px blue;
 }
 
 .container * {
