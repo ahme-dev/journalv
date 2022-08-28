@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <SearchList></SearchList>
-    <SearchBar></SearchBar>
+    <SearchList :data="days"></SearchList>
+    <SearchBar @searching="searching"></SearchBar>
   </div>
 </template>
 
@@ -12,6 +12,20 @@ import SearchList from "./components/SearchList.vue";
 export default {
   name: "App",
   components: { SearchBar, SearchList },
+  data() {
+    return {
+      days: [
+        { id: 1, text: "hello", num: "18aug" },
+        { id: 2, text: "hello", num: "19aug" },
+        { id: 3, text: "hello", num: "28aug" },
+      ],
+    };
+  },
+  methods: {
+    searching(searchTerm) {
+      console.log(searchTerm);
+    },
+  },
 };
 </script>
 

@@ -1,7 +1,8 @@
 <template>
   <div class="SearchList">
-    <ListItem text="item" type="command"></ListItem>
-    <ListItem text="item" type="file"></ListItem>
+    <div :key="day.id" v-for="day in data">
+      <ListItem :num="day.num" :text="day.text" type="command"></ListItem>
+    </div>
   </div>
 </template>
 
@@ -9,6 +10,9 @@
 import ListItem from "./ListItem.vue";
 export default {
   name: "SearchList",
+  props: {
+    data: Array,
+  },
   components: { ListItem },
 };
 </script>
@@ -24,13 +28,18 @@ export default {
   border-top-left-radius: 3rem;
   border-top-right-radius: 3rem;
 }
+
 .SearchList > * {
+  background-color: transparent;
+}
+
+.SearchList > div > * {
   padding: 1rem;
 
   border-bottom-right-radius: 1rem;
   border-top-right-radius: 1rem;
 }
-.SearchList > *:hover {
+.SearchList > div > *:hover {
   color: var(--bg);
   cursor: pointer;
 }

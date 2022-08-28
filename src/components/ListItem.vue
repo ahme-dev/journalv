@@ -1,6 +1,7 @@
 <template>
   <div :class="[selected ? 'selected' : '', 'ListItem', type]">
     <h3>{{ text }}</h3>
+    <h4>{{ num }}</h4>
   </div>
 </template>
 
@@ -9,6 +10,7 @@ export default {
   name: "ListItem",
   props: {
     text: String,
+    num: Number,
     type: String,
     selected: Boolean,
   },
@@ -16,11 +18,15 @@ export default {
 </script>
 
 <style scoped>
-h3 {
+h3,
+h4 {
   background-color: transparent;
   font-size: 1rem;
 }
 .ListItem {
+  display: flex;
+  justify-content: space-between;
+
   border-left: solid 1rem var(--main);
 }
 .command {

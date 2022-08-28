@@ -1,13 +1,23 @@
 <template>
   <div class="SearchBar">
-    <button class="fa-solid fa-bars"></button>
-    <input placeholder="start typing" type="text" />
+    <button class="fa-solid fa-bars">{{}}</button>
+    <input
+      @input="$emit('searching', searchTerm)"
+      v-model="searchTerm"
+      placeholder="start typing"
+      type="text"
+    />
   </div>
 </template>
 
 <script>
 export default {
   name: "SearchBar",
+  data() {
+    return {
+      searchTerm: "",
+    };
+  },
 };
 </script>
 
