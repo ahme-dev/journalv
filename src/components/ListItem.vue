@@ -17,9 +17,9 @@ export default {
 
 <style scoped>
 h3 {
-  background-color: inherit;
+  background-color: transparent;
+  font-size: 1rem;
 }
-
 .ListItem {
   border-left: solid 1rem var(--main);
 }

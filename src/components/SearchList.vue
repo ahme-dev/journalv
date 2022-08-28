@@ -28,7 +28,7 @@ export default {
   padding: 1rem;
 }
 .SearchList > *:hover {
-  color: var(--main);
+  color: var(--bg);
   cursor: pointer;
 }
 </style>

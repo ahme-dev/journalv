@@ -19,8 +19,8 @@ export default {
 :root {
   --bg: #222;
   --fg: #eee;
-  --main: #333;
-  --accent: #fb5;
+  --main: rgba(70, 70, 70, 0.5);
+  --accent: #e95;
 }
 
 *,

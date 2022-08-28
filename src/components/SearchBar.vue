@@ -1,7 +1,7 @@
 <template>
   <div class="SearchBar">
-    <input type="text" />
     <button></button>
+    <input type="text" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
 <style scoped>
 .SearchBar {
   display: grid;
-  grid-template-columns: 8fr 1fr;
+  grid-template-columns: 1fr 9fr;
 }
 .SearchBar > * {
   height: 100%;
@@ -22,10 +22,10 @@ export default {
 }
 input {
   font-size: 1.5rem;
-  padding: 1rem;
-  text-align: center;
+  padding: 1rem 2rem;
+  font-weight: bold;
 
-  border-left: solid 1rem var(--accent);
+  border-right: solid 1rem var(--accent);
 }
 input:focus {
   outline: none;
