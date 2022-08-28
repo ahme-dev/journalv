@@ -1,7 +1,7 @@
 <template>
   <div class="SearchBar">
-    <button></button>
-    <input type="text" />
+    <button class="fa-solid fa-bars"></button>
+    <input placeholder="start typing" type="text" />
   </div>
 </template>
 
@@ -32,7 +32,9 @@ input:focus {
 }
 button {
   cursor: pointer;
+  font-size: 1.5rem;
 
+  color: var(--bg);
   background-color: var(--accent);
 }
 </style>
