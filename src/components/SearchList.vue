@@ -21,8 +21,8 @@ export default {
   gap: 1rem;
   padding: 3rem;
 
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
 }
 .SearchList > * {
   padding: 1rem;
