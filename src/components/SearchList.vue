@@ -26,6 +26,9 @@ export default {
 }
 .SearchList > * {
   padding: 1rem;
+
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 .SearchList > *:hover {
   color: var(--bg);
