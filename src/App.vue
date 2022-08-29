@@ -50,8 +50,10 @@ export default {
   background-color: inherit;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Tajawal&display=swap");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Comfortaa, Tahoma, sans-serif;
   height: 100vh;
 
   background-color: var(--bg);
