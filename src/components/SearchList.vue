@@ -28,19 +28,4 @@ export default {
   border-top-left-radius: 3rem;
   border-top-right-radius: 3rem;
 }
-
-.SearchList > * {
-  background-color: transparent;
-}
-
-.SearchList > div > * {
-  padding: 1rem;
-
-  border-bottom-right-radius: 1rem;
-  border-top-right-radius: 1rem;
-}
-.SearchList > div > *:hover {
-  color: var(--bg);
-  cursor: pointer;
-}
 </style>

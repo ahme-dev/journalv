@@ -1,7 +1,8 @@
 <template>
   <div class="SearchBar">
-    <button class="fa-solid fa-bars"></button>
+    <button class="searchButton fa-solid fa-bars"></button>
     <input
+      class="searchField"
       @input="$emit('searching', searchTerm)"
       v-model="searchTerm"
       placeholder="start typing"
@@ -30,17 +31,18 @@ export default {
   height: 100%;
   width: 100%;
 }
-input {
+.searchField {
   font-size: 1.2rem;
   padding: 1rem 2rem;
   font-weight: bold;
 
   border-right: solid 1rem var(--accent);
+  background-color: var(--main);
 }
-input:focus {
+.searchField:focus {
   outline: none;
 }
-button {
+.searchButton {
   cursor: pointer;
   font-size: 1.2rem;
 

@@ -52,7 +52,6 @@ export default {
   box-sizing: border-box;
   font-family: inherit;
   color: inherit;
-  background-color: inherit;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Tajawal&display=swap");
@@ -78,7 +77,7 @@ export default {
   padding: 2rem;
 }
 
-.container * {
+.container > * {
   background-color: var(--main);
 }
 </style>

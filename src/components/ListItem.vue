@@ -29,21 +29,18 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  background-color: var(--main);
 }
 .selected,
 .ListItem:hover {
   background-color: var(--accent);
+  color: var(--bg);
+  cursor: pointer;
 }
 .itemLeft,
 .itemRight {
   display: flex;
   gap: 1rem;
-}
-.itemRight,
-.itemLeft,
-.itemTitle,
-.itemIcon,
-.itemDate {
-  background-color: transparent;
 }
 </style>
