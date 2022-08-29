@@ -31,7 +31,7 @@ export default {
   width: 100%;
 }
 input {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 1rem 2rem;
   font-weight: bold;
 
@@ -42,7 +42,7 @@ input:focus {
 }
 button {
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 
   color: var(--bg);
   background-color: var(--accent);
