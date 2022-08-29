@@ -35,10 +35,12 @@ h4 {
 .command:hover {
   background-color: var(--accent);
 }
-.file {
+.day,
+.dream {
   border-left: solid 1rem var(--fg);
 }
-.file:hover {
+.day:hover,
+.dream:hover {
   background-color: var(--fg);
 }
 </style>

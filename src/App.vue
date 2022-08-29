@@ -15,9 +15,14 @@ export default {
   data() {
     return {
       days: [
-        { id: 1, title: "Went to this place", date: "18 Aug 2022" },
-        { id: 2, title: "Performed achievement", date: "19 Sep 2022" },
-        { id: 3, title: "Ate something", date: "28 Oct 2022" },
+        { id: 1, type: "command", title: "Delete Day", date: "" },
+        {
+          id: 2,
+          type: "day",
+          title: "Performed ",
+          date: "19 Sep 2022",
+        },
+        { id: 3, type: "dream", title: "Ate something", date: "28 Oct 2022" },
       ],
     };
   },
