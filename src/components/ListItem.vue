@@ -1,5 +1,5 @@
 <template>
-  <div :class="[isSelected ? 'selected' : '', 'ListItem', type]">
+  <div :class="[{ selected: isSelected }, 'ListItem', type]">
     <div class="itemLeft">
       <span v-if="type == 'day'" class="itemIcon fa-solid fa-sun"></span>
       <span v-if="type == 'dream'" class="itemIcon fa-solid fa-moon"></span>
