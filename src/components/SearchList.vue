@@ -1,7 +1,12 @@
 <template>
   <div class="SearchList">
     <div :key="day.id" v-for="day in data">
-      <ListItem :date="day.date" :title="day.title" :type="day.type"></ListItem>
+      <ListItem
+        :class="day.id == 1 ? 'selected' : ''"
+        :date="day.date"
+        :title="day.title"
+        :type="day.type"
+      ></ListItem>
     </div>
   </div>
 </template>
@@ -20,7 +25,7 @@ export default {
 <style scoped>
 .SearchList {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: end;
   gap: 1rem;
   padding: 3rem;
