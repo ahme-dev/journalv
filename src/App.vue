@@ -1,8 +1,6 @@
 <template>
-  <div class="container">
-    <SearchList :data="days"></SearchList>
-    <SearchBar @searching="searching"></SearchBar>
-  </div>
+  <SearchList :data="days"></SearchList>
+  <SearchBar @searching="searching"></SearchBar>
 </template>
 
 <script>
@@ -54,19 +52,16 @@ export default {
   color: inherit;
 }
 
+html,
+body,
+#app {
+  height: 100%;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Tajawal&display=swap");
 
 #app {
   font-family: Comfortaa, Tahoma, sans-serif;
-  height: 100vh;
-
-  background-color: var(--bg);
-  color: var(--fg);
-}
-
-.container {
-  widows: 100%;
-  height: 100%;
 
   max-width: 900px;
   margin: auto;
@@ -75,9 +70,12 @@ export default {
   grid-template-rows: 9fr 1fr;
   gap: 1rem;
   padding: 2rem;
+
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
-.container > * {
+#app > * {
   background-color: var(--main);
 }
 </style>
