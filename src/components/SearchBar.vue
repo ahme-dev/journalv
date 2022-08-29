@@ -1,6 +1,6 @@
 <template>
   <div class="SearchBar">
-    <button class="fa-solid fa-bars">{{}}</button>
+    <button class="fa-solid fa-bars"></button>
     <input
       @input="$emit('searching', searchTerm)"
       v-model="searchTerm"

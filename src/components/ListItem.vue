@@ -1,7 +1,7 @@
 <template>
-  <div :class="[selected ? 'selected' : '', 'ListItem', type]">
-    <h3>{{ text }}</h3>
-    <h4>{{ num }}</h4>
+  <div :class="[isSelected ? 'selected' : '', 'ListItem', type]">
+    <h3>{{ title }}</h3>
+    <h4>{{ date }}</h4>
   </div>
 </template>
 
@@ -9,10 +9,10 @@
 export default {
   name: "ListItem",
   props: {
-    text: String,
-    num: Number,
+    title: String,
+    date: String,
     type: String,
-    selected: Boolean,
+    isSelected: Boolean,
   },
 };
 </script>

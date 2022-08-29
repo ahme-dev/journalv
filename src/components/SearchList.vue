@@ -1,7 +1,7 @@
 <template>
   <div class="SearchList">
     <div :key="day.id" v-for="day in data">
-      <ListItem :num="day.num" :text="day.text" type="command"></ListItem>
+      <ListItem :date="day.date" :title="day.title" type="command"></ListItem>
     </div>
   </div>
 </template>

@@ -15,9 +15,9 @@ export default {
   data() {
     return {
       days: [
-        { id: 1, text: "hello", num: "18aug" },
-        { id: 2, text: "hello", num: "19aug" },
-        { id: 3, text: "hello", num: "28aug" },
+        { id: 1, title: "Went to this place", date: "18 Aug 2022" },
+        { id: 2, title: "Performed achievement", date: "19 Sep 2022" },
+        { id: 3, title: "Ate something", date: "28 Oct 2022" },
       ],
     };
   },
