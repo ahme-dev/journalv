@@ -51,9 +51,11 @@ export default {
 .itemIcon,
 .itemDate {
   font-size: 1rem;
-  padding: 1rem;
+  height: 100%;
+  padding: 0 1rem;
 }
 .itemIcon {
   background-color: var(--accent);
+  padding: 1rem;
 }
 </style>

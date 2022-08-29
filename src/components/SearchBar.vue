@@ -45,6 +45,7 @@ export default {
 .searchButton {
   cursor: pointer;
   font-size: 1.2rem;
+  padding: 1rem;
 
   color: var(--bg);
   background-color: var(--accent);
