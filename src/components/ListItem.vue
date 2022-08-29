@@ -1,7 +1,14 @@
 <template>
   <div :class="[isSelected ? 'selected' : '', 'ListItem', type]">
-    <h3>{{ title }}</h3>
-    <h4>{{ date }}</h4>
+    <div class="itemLeft">
+      <span v-if="type == 'day'" class="itemIcon fa-solid fa-sun"></span>
+      <span v-if="type == 'dream'" class="itemIcon fa-solid fa-moon"></span>
+      <span v-if="type == 'command'" class="itemIcon fa-solid fa-star"></span>
+      <h3 class="itemTitle">{{ title }}</h3>
+    </div>
+    <div class="itemRight">
+      <h4 class="itemDate" v-if="date !== ''">{{ date }}</h4>
+    </div>
   </div>
 </template>
 
@@ -18,29 +25,25 @@ export default {
 </script>
 
 <style scoped>
-h3,
-h4 {
-  background-color: transparent;
-  font-size: 1rem;
-}
 .ListItem {
   display: flex;
   justify-content: space-between;
-
-  border-left: solid 1rem var(--main);
+  align-items: center;
 }
-.command {
-  border-left: solid 1rem var(--accent);
-}
-.command:hover {
+.selected,
+.ListItem:hover {
   background-color: var(--accent);
 }
-.day,
-.dream {
-  border-left: solid 1rem var(--fg);
+.itemLeft,
+.itemRight {
+  display: flex;
+  gap: 1rem;
 }
-.day:hover,
-.dream:hover {
-  background-color: var(--fg);
+.itemRight,
+.itemLeft,
+.itemTitle,
+.itemIcon,
+.itemDate {
+  background-color: transparent;
 }
 </style>
