@@ -30,6 +30,9 @@ export default {
   justify-content: space-between;
   align-items: center;
 
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+
   background-color: var(--main);
 }
 .selected,
@@ -41,6 +44,16 @@ export default {
 .itemLeft,
 .itemRight {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.itemTitle,
+.itemIcon,
+.itemDate {
+  font-size: 1rem;
+  padding: 1rem;
+}
+.itemIcon {
+  background-color: var(--accent);
 }
 </style>
