@@ -1,3 +1,11 @@
+const startData = [
+  {
+    id: 1,
+    type: "command",
+    title: "Nothing to show here!",
+  },
+];
+
 const dummyData = [
   {
     id: 1,
@@ -29,9 +37,16 @@ const dummyData = [
 
 export function filterData(searchPhrase) {
   const newData = dummyData.filter((entry) => {
+    // if no search phrase was entered deny filtering
+    if (searchPhrase === "") return false;
+
     if (entry["title"].toLowerCase().includes(searchPhrase.toLowerCase())) {
       return true;
     }
   });
+
+  // if result was empty
+  if (newData.toString() == "") return startData;
+
   return newData;
 }

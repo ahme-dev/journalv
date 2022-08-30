@@ -1,5 +1,5 @@
 <template>
-  <SearchList :data="days"></SearchList>
+  <SearchList :data="searchData"></SearchList>
   <SearchBar @searching="searching"></SearchBar>
 </template>
 
@@ -13,12 +13,15 @@ export default {
   components: { SearchBar, SearchList },
   data() {
     return {
-      days: [],
+      searchData: [],
     };
+  },
+  mounted() {
+    this.searching("");
   },
   methods: {
     searching(searchTerm) {
-      this.days = filterData(searchTerm);
+      this.searchData = filterData(searchTerm);
     },
   },
 };
