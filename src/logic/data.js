@@ -27,6 +27,11 @@ const dummyData = [
   },
 ];
 
-export function filterData() {
-  return dummyData;
+export function filterData(searchPhrase) {
+  const newData = dummyData.filter((entry) => {
+    if (entry["title"].toLowerCase().includes(searchPhrase.toLowerCase())) {
+      return true;
+    }
+  });
+  return newData;
 }

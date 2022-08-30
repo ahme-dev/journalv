@@ -13,12 +13,12 @@ export default {
   components: { SearchBar, SearchList },
   data() {
     return {
-      days: filterData(),
+      days: [],
     };
   },
   methods: {
     searching(searchTerm) {
-      console.log(searchTerm);
+      this.days = filterData(searchTerm);
     },
   },
 };
