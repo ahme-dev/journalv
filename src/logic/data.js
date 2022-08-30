@@ -53,7 +53,6 @@ export function filterData(searchPhrase) {
 
       // search in tags
       for (let tag of entry["tags"]) {
-        console.log(`find ${searchPhrase} in ${tag}`);
         if (tag.toLowerCase().includes(searchPhrase.toLowerCase())) {
           entry.display = ++counter;
           return true;
