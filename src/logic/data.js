@@ -1,5 +1,6 @@
 const startData = [
   {
+    id: "a001",
     type: "command",
     title: "Nothing to show here!",
   },
@@ -38,7 +39,7 @@ export function filterData(searchPhrase) {
 
     if (entry["title"].toLowerCase().includes(searchPhrase.toLowerCase())) {
       counter += 1;
-      entry.id = counter;
+      entry.display = counter;
       return true;
     }
   });

@@ -1,12 +1,12 @@
 <template>
   <div class="SearchList">
-    <div :key="day.id" v-for="day in data">
+    <div :key="entry.display" v-for="entry in data">
       <ListItem
-        :class="day.id == 1 ? 'selected' : ''"
-        :date="day.date"
-        :title="day.title"
-        :tags="day.tags"
-        :type="day.type"
+        :class="entry.display == 1 ? 'selected' : ''"
+        :date="entry.date"
+        :title="entry.title"
+        :tags="entry.tags"
+        :type="entry.type"
       ></ListItem>
     </div>
   </div>
