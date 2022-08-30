@@ -37,9 +37,33 @@ export function filterData(searchPhrase) {
     // if no search phrase was entered deny filtering
     if (searchPhrase === "") return false;
 
+    // search in title
     if (entry["title"].toLowerCase().includes(searchPhrase.toLowerCase())) {
-      counter += 1;
-      entry.display = counter;
+      entry.display = ++counter;
+      return true;
+    }
+
+    // if type isn't a command
+    if (entry["type"] !== "command") {
+      // search in date
+      if (entry["date"].toLowerCase().includes(searchPhrase.toLowerCase())) {
+        entry.display = ++counter;
+        return true;
+      }
+
+      // search in tags
+      for (let tag of entry["tags"]) {
+        console.log(`find ${searchPhrase} in ${tag}`);
+        if (tag.toLowerCase().includes(searchPhrase.toLowerCase())) {
+          entry.display = ++counter;
+          return true;
+        }
+      }
+    }
+
+    // search in type
+    if (entry["type"].toLowerCase().includes(searchPhrase.toLowerCase())) {
+      entry.display = ++counter;
       return true;
     }
   });
