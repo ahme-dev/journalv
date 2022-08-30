@@ -8,6 +8,7 @@
     </div>
     <div class="itemRight">
       <h4 class="itemDate" v-if="date !== ''">{{ date }}</h4>
+      <h5 class="itemTags">{{ tags }}</h5>
     </div>
   </div>
 </template>
@@ -17,6 +18,7 @@ export default {
   name: "ListItem",
   props: {
     title: String,
+    tags: Array,
     date: String,
     type: String,
     isSelected: Boolean,
@@ -47,10 +49,13 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
+.itemRight {
+  flex-direction: column;
+}
 .itemTitle,
 .itemIcon,
+.itemTags,
 .itemDate {
-  font-size: 1rem;
   height: 100%;
   padding: 0 1rem;
 }

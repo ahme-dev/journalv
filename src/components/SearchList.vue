@@ -5,6 +5,7 @@
         :class="day.id == 1 ? 'selected' : ''"
         :date="day.date"
         :title="day.title"
+        :tags="day.tags"
         :type="day.type"
       ></ListItem>
     </div>

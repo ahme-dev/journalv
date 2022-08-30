@@ -13,14 +13,25 @@ export default {
   data() {
     return {
       days: [
-        { id: 1, type: "command", title: "Delete Day", date: "" },
+        {
+          id: 1,
+          type: "command",
+          title: "Delete Day",
+        },
         {
           id: 2,
           type: "day",
           title: "Performed ",
+          tags: ["happy", "excited"],
           date: "19 Sep 2022",
         },
-        { id: 3, type: "dream", title: "Ate something", date: "28 Oct 2022" },
+        {
+          id: 3,
+          type: "dream",
+          title: "Ate something",
+          tags: ["happy", "satisfied"],
+          date: "28 Oct 2022",
+        },
       ],
     };
   },
