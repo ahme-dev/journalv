@@ -46,7 +46,5 @@ export function filterData(searchPhrase) {
   // if result was empty
   if (newData.toString() == "") return startData;
 
-  console.log(newData);
-
   return newData;
 }
