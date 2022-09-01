@@ -1,6 +1,6 @@
 const startData = [
   {
-    id: "a001",
+    display: 1,
     type: "command",
     title: "Nothing to show here!",
   },
