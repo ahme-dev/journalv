@@ -35,6 +35,9 @@ export function filterData(searchKeys) {
   // if no search was entered deny filtering
   if (searchKeys === "") return startData;
 
+  // counter to number entry display order
+  let counter = 0;
+
   // clean and split search keys
   const keys = searchKeys.toString().toLowerCase().trim().split(" ");
 
@@ -48,6 +51,9 @@ export function filterData(searchKeys) {
     for (const key of keys) {
       if (!entryAsString.includes(key)) return false;
     }
+
+    // add number and filter entry in
+    listEntry.display = ++counter;
     return true;
   });
 
