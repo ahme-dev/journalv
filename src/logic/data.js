@@ -31,40 +31,24 @@ const dummyData = [
   },
 ];
 
-export function filterData(searchPhrase) {
-  let counter = 0;
-  const newData = dummyData.filter((entry) => {
-    // if no search phrase was entered deny filtering
-    if (searchPhrase === "") return false;
+export function filterData(searchKeys) {
+  // if no search was entered deny filtering
+  if (searchKeys === "") return startData;
 
-    // search in title
-    if (entry["title"].toLowerCase().includes(searchPhrase.toLowerCase())) {
-      entry.display = ++counter;
-      return true;
+  // clean and split search keys
+  const keys = searchKeys.toString().toLowerCase().trim().split(" ");
+
+  // filter the data by entries
+  const newData = dummyData.filter((listEntry) => {
+    // clean entry and turn into string
+    const entryAsString = JSON.stringify(listEntry).toLowerCase().trim();
+
+    // search each keyword
+    // if it fails to include all keys don't return true
+    for (const key of keys) {
+      if (!entryAsString.includes(key)) return false;
     }
-
-    // if type isn't a command
-    if (entry["type"] !== "command") {
-      // search in date
-      if (entry["date"].toLowerCase().includes(searchPhrase.toLowerCase())) {
-        entry.display = ++counter;
-        return true;
-      }
-
-      // search in tags
-      for (let tag of entry["tags"]) {
-        if (tag.toLowerCase().includes(searchPhrase.toLowerCase())) {
-          entry.display = ++counter;
-          return true;
-        }
-      }
-    }
-
-    // search in type
-    if (entry["type"].toLowerCase().includes(searchPhrase.toLowerCase())) {
-      entry.display = ++counter;
-      return true;
-    }
+    return true;
   });
 
   // if result was empty
