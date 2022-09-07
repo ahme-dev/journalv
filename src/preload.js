@@ -1,5 +1,6 @@
-const { contextBridge } = require("electron");
+import { contextBridge } from "electron";
+import { filterData } from "./logic/data.js";
 
-contextBridge.exposeInMainWorld("background", {
-  working: true,
+contextBridge.exposeInMainWorld("backend", {
+  callFilterData: (args) => filterData(args),
 });

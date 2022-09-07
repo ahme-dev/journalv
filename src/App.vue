@@ -6,7 +6,6 @@
 <script>
 import SearchBar from "./components/SearchBar.vue";
 import SearchList from "./components/SearchList.vue";
-import { filterData } from "./logic/data.js";
 
 export default {
   name: "App",
@@ -21,7 +20,7 @@ export default {
   },
   methods: {
     searching(searchTerm) {
-      this.searchData = filterData(searchTerm);
+      this.searchData = window.backend.callFilterData(searchTerm);
     },
   },
 };
