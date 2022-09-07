@@ -1,3 +1,27 @@
+var fs = require("graceful-fs");
+
+fs.writeFile("./hello.txt", "saying hi", (err) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+});
+
+fs.readFile("./hello.txt", (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(data.toString());
+});
+
+fs.rm("./hello.txt", (err) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+});
+
 const startData = [
   {
     display: 1,
