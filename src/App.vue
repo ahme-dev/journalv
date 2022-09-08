@@ -1,4 +1,5 @@
 <template>
+  <EntryEditor></EntryEditor>
   <SearchList :data="searchData"></SearchList>
   <SearchBar @searching="searching"></SearchBar>
 </template>
@@ -6,10 +7,11 @@
 <script>
 import SearchBar from "./components/SearchBar.vue";
 import SearchList from "./components/SearchList.vue";
+import EntryEditor from "./components/EntryEditor.vue";
 
 export default {
   name: "App",
-  components: { SearchBar, SearchList },
+  components: { SearchBar, SearchList, EntryEditor },
   data() {
     return {
       // holds the results of a search (rendered)
