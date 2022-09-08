@@ -12,13 +12,16 @@ export default {
   components: { SearchBar, SearchList },
   data() {
     return {
+      // holds the results of a search (rendered)
       searchData: [],
     };
   },
   mounted() {
+    // first time search to show default result
     this.searching("");
   },
   methods: {
+    // filter data using search keywords and add into result
     searching(searchTerm) {
       this.searchData = window.backend.callFilterData(searchTerm);
     },

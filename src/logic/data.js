@@ -1,5 +1,6 @@
 import { readJournal, writeJournal } from "./io";
 
+// dummy data to use temporarily
 const dummyData = [
   {
     type: "command",
@@ -25,6 +26,7 @@ const dummyData = [
   },
 ];
 
+// data to display when search comes up with nothing
 const startData = [
   {
     display: 1,
@@ -33,9 +35,11 @@ const startData = [
   },
 ];
 
+// test writing and reading of data
 writeJournal(dummyData);
 let parsedData = readJournal();
 
+// filter all journal data using search keywords
 export function filterData(searchKeys) {
   // if no search was entered deny filtering
   if (searchKeys === "") return startData;
