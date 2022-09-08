@@ -1,34 +1,4 @@
-var fs = require("graceful-fs");
-
-fs.writeFile("./hello.txt", "saying hi", (err) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-});
-
-fs.readFile("./hello.txt", (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log(data.toString());
-});
-
-fs.rm("./hello.txt", (err) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-});
-
-const startData = [
-  {
-    display: 1,
-    type: "command",
-    title: "Nothing to show here!",
-  },
-];
+import { readJournal, writeJournal } from "./io";
 
 const dummyData = [
   {
@@ -55,6 +25,17 @@ const dummyData = [
   },
 ];
 
+const startData = [
+  {
+    display: 1,
+    type: "command",
+    title: "Nothing to show here!",
+  },
+];
+
+writeJournal(dummyData);
+let parsedData = readJournal();
+
 export function filterData(searchKeys) {
   // if no search was entered deny filtering
   if (searchKeys === "") return startData;
@@ -66,7 +47,7 @@ export function filterData(searchKeys) {
   const keys = searchKeys.toString().toLowerCase().trim().split(" ");
 
   // filter the data by entries
-  const newData = dummyData.filter((listEntry) => {
+  const newData = parsedData.filter((listEntry) => {
     // clean entry and turn into string
     const entryAsString = JSON.stringify(listEntry).toLowerCase().trim();
 
