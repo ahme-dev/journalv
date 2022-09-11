@@ -1,6 +1,6 @@
 <template>
-  <EntryEditor></EntryEditor>
-  <SearchList :data="searchData"></SearchList>
+  <EntryEditor v-if="isEditing"></EntryEditor>
+  <SearchList v-if="!isEditing" :data="searchData"></SearchList>
   <SearchBar @searching="searching"></SearchBar>
 </template>
 
@@ -16,6 +16,7 @@ export default {
     return {
       // holds the results of a search (rendered)
       searchData: [],
+      isEditing: true,
     };
   },
   mounted() {
