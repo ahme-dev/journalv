@@ -55,10 +55,12 @@ export default {
 input,
 img,
 textarea,
-input,
+input {
+  border: 0;
+}
+
 textarea:focus,
 input:focus {
-  border: 0;
   outline: none;
 }
 
