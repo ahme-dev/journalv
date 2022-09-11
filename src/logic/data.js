@@ -35,10 +35,6 @@ const startData = [
   },
 ];
 
-// test writing and reading of data
-writeJournal(dummyData);
-let parsedData = readJournal();
-
 // filter all journal data using search keywords
 export function filterData(searchKeys) {
   // if no search was entered deny filtering
@@ -49,6 +45,10 @@ export function filterData(searchKeys) {
 
   // clean and split search keys
   const keys = searchKeys.toString().toLowerCase().trim().split(" ");
+
+  // test writing and reading of data
+  writeJournal(dummyData);
+  let parsedData = readJournal();
 
   // filter the data by entries
   const newData = parsedData.filter((listEntry) => {
