@@ -27,16 +27,13 @@ export default {
   border-top-right-radius: 2rem;
 }
 
-input,
 textarea {
-  background-color: transparent;
-  border-radius: 0.5rem;
-  border: solid 0.2rem burlywood;
   padding: 0.5rem;
+  resize: none;
 }
 
-input,
-textarea {
-  outline: none;
+input {
+  font-size: 1.1rem;
+  border-bottom: solid 0.2rem burlywood;
 }
 </style>

@@ -49,6 +49,17 @@ export default {
   box-sizing: border-box;
   font-family: inherit;
   color: inherit;
+  background-color: transparent;
+}
+
+input,
+img,
+textarea,
+input,
+textarea:focus,
+input:focus {
+  border: 0;
+  outline: none;
 }
 
 html,
