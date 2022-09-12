@@ -1,7 +1,11 @@
 <template>
   <EntryEditor v-if="isEditing"></EntryEditor>
   <SearchList v-if="!isEditing" :data="searchData"></SearchList>
-  <SearchBar @searching="searching"></SearchBar>
+  <SearchBar
+    :isEditing="isEditing"
+    @back="back"
+    @searching="searching"
+  ></SearchBar>
 </template>
 
 <script>
@@ -27,6 +31,9 @@ export default {
     // filter data using search keywords and add into result
     searching(searchTerm) {
       this.searchData = window.backend.callFilterData(searchTerm);
+    },
+    back() {
+      this.isEditing = false;
     },
   },
 };

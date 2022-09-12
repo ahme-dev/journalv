@@ -1,12 +1,25 @@
 <template>
   <div class="SearchBar">
-    <button class="searchButton fa-solid fa-bars"></button>
+    <button v-if="!isEditing" class="searchButton fa-solid fa-bars"></button>
     <input
+      v-if="!isEditing"
       class="searchField"
       @input="$emit('searching', searchTerm)"
       v-model="searchTerm"
       placeholder="start typing"
       type="text"
+    />
+
+    <button
+      v-if="isEditing"
+      class="searchButton fa-solid fa-chevron-left"
+      @click="$emit('back')"
+    ></button>
+    <input
+      v-if="isEditing"
+      type="text"
+      placeholder="you are editing"
+      disabled
     />
   </div>
 </template>
@@ -18,6 +31,9 @@ export default {
     return {
       searchTerm: "",
     };
+  },
+  props: {
+    isEditing: Boolean,
   },
 };
 </script>
@@ -31,7 +47,7 @@ export default {
   height: 100%;
   width: 100%;
 }
-.searchField {
+input {
   font-size: 1.2rem;
   padding: 1rem 2rem;
   font-weight: bold;
@@ -39,7 +55,7 @@ export default {
   border-right: solid 1rem var(--accent);
   background-color: var(--main);
 }
-.searchField:focus {
+input:focus {
   outline: none;
 }
 .searchButton {
