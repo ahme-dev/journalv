@@ -35,6 +35,8 @@ const startData = [
   },
 ];
 
+let runningData = dummyData;
+
 // filter all journal data using search keywords
 export function filterData(searchKeys) {
   // counter to number entry display order
@@ -43,12 +45,8 @@ export function filterData(searchKeys) {
   // clean and split search keys
   const keys = searchKeys.toString().toLowerCase().trim().split(" ");
 
-  // test writing and reading of data
-  writeJournal(dummyData);
-  let parsedData = readJournal();
-
   // filter the data by entries
-  const newData = parsedData.filter((listEntry) => {
+  const newData = runningData.filter((listEntry) => {
     // clean entry and turn into string
     const entryAsString = JSON.stringify(listEntry).toLowerCase().trim();
 
