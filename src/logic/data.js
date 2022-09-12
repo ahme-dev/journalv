@@ -37,9 +37,6 @@ const startData = [
 
 // filter all journal data using search keywords
 export function filterData(searchKeys) {
-  // if no search was entered deny filtering
-  if (searchKeys === "") return startData;
-
   // counter to number entry display order
   let counter = 0;
 
