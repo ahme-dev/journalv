@@ -44,7 +44,7 @@ export default {
   --bg: #222;
   --fg: #eee;
   --main: rgba(70, 70, 70, 0.5);
-  --accent: #e95;
+  --accent: rgb(56, 177, 141);
 }
 
 *,
