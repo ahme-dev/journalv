@@ -8,35 +8,29 @@
   ></SearchBar>
 </template>
 
-<script>
+<script setup>
 import SearchBar from "./components/SearchBar.vue";
 import SearchList from "./components/SearchList.vue";
 import EntryEditor from "./components/EntryEditor.vue";
 
-export default {
-  name: "App",
-  components: { SearchBar, SearchList, EntryEditor },
-  data() {
-    return {
-      // holds the results of a search (rendered)
-      searchData: [],
-      isEditing: true,
-    };
-  },
-  mounted() {
-    // first time search to show default result
-    this.searching("");
-  },
-  methods: {
-    // filter data using search keywords and add into result
-    searching(searchTerm) {
-      this.searchData = window.backend.callFilterData(searchTerm);
-    },
-    back() {
-      this.isEditing = false;
-    },
-  },
+import { ref, onMounted } from "vue";
+
+// holds the results of a search (rendered)
+const searchData = ref([]);
+const isEditing = ref(true);
+
+const searching = (searchTerm) => {
+  // filter data using search keywords and add into result
+  searchData.value = window.backend.callFilterData(searchTerm);
 };
+const back = () => {
+  isEditing.value = false;
+};
+
+onMounted(() => {
+  // first time search to show default result
+  searching("");
+});
 </script>
 
 <style>

@@ -1,8 +1,11 @@
 <template>
   <div class="SearchBar">
-    <button v-if="!isEditing" class="searchButton fa-solid fa-bars"></button>
+    <button
+      v-if="!props.isEditing"
+      class="searchButton fa-solid fa-bars"
+    ></button>
     <input
-      v-if="!isEditing"
+      v-if="!props.isEditing"
       class="searchField"
       @input="$emit('searching', searchTerm)"
       v-model="searchTerm"
@@ -11,12 +14,12 @@
     />
 
     <button
-      v-if="isEditing"
+      v-if="props.isEditing"
       class="searchButton fa-solid fa-chevron-left"
       @click="$emit('back')"
     ></button>
     <input
-      v-if="isEditing"
+      v-if="props.isEditing"
       type="text"
       placeholder="you are editing"
       disabled
@@ -24,18 +27,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "SearchBar",
-  data() {
-    return {
-      searchTerm: "",
-    };
-  },
-  props: {
-    isEditing: Boolean,
-  },
-};
+<script setup>
+import { ref, defineProps } from "vue";
+
+const searchTerm = ref("");
+const props = defineProps({
+  isEditing: Boolean,
+});
 </script>
 
 <style scoped>

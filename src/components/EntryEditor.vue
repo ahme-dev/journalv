@@ -18,14 +18,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "EntryEditor",
-  props: {
-    data: Array,
-  },
-};
-</script>
+<script setup></script>
 
 <style scoped>
 .EntryEditor {

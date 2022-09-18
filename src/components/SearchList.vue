@@ -1,6 +1,6 @@
 <template>
   <div class="SearchList">
-    <div :key="entry.display" v-for="entry in data">
+    <div :key="entry.display" v-for="entry in props.data">
       <ListItem
         :class="entry.display == 1 ? 'selected' : ''"
         :date="entry.date"
@@ -12,15 +12,13 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import ListItem from "./ListItem.vue";
-export default {
-  name: "SearchList",
-  props: {
-    data: Array,
-  },
-  components: { ListItem },
-};
+import { defineProps } from "vue";
+
+const props = defineProps({
+  data: Array,
+});
 </script>
 
 <style scoped>
