@@ -1,21 +1,21 @@
 <template>
-  <div :class="[{ selected: props.isSelected }, 'ListItem', props.type]">
+  <div :class="['ListItem', { selected: props.selected }, props.type]">
     <div class="itemLeft">
-      <span v-if="props.type == 'day'" class="itemIcon fa-solid fa-sun"></span>
       <span
-        v-if="props.type == 'dream'"
-        class="itemIcon fa-solid fa-moon"
-      ></span>
-      <span
-        v-if="props.type == 'command'"
-        class="itemIcon fa-solid fa-star"
+        :class="[
+          'itemIcon',
+          'fa-solid',
+          { 'fa-moon': props.type == 'dream' },
+          { 'fa-sun': props.type == 'day' },
+          { 'fa-star': props.type == 'command' },
+        ]"
       ></span>
 
       <h3 class="itemTitle">{{ props.title }}</h3>
     </div>
 
-    <div class="itemRight">
-      <h4 class="itemDate" v-if="props.date !== ''">{{ props.date }}</h4>
+    <div class="itemRight" v-if="props.type !== 'command'">
+      <h4 class="itemDate">{{ props.date }}</h4>
       <h5 class="itemTags">{{ props.tags }}</h5>
     </div>
   </div>
@@ -28,7 +28,7 @@ const props = defineProps({
   tags: Array,
   date: String,
   type: String,
-  isSelected: Boolean,
+  selected: Boolean,
 });
 </script>
 
@@ -45,9 +45,10 @@ const props = defineProps({
 }
 .selected,
 .ListItem:hover {
+  cursor: pointer;
+
   background-color: var(--accent);
   color: var(--bg);
-  cursor: pointer;
 }
 .itemLeft,
 .itemRight {
@@ -66,7 +67,8 @@ const props = defineProps({
   padding: 0 1rem;
 }
 .itemIcon {
-  background-color: var(--accent);
   padding: 1rem;
+
+  background-color: var(--accent);
 }
 </style>

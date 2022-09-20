@@ -1,10 +1,15 @@
 <template>
-  <EntryEditor v-if="isEditing"></EntryEditor>
-  <SearchList v-if="!isEditing" :data="searchData"></SearchList>
+  <EntryEditor v-if="uiMode == 'edit'"></EntryEditor>
+
+  <SearchList
+    v-if="uiMode == 'search'"
+    :currentEntries="currentEntries"
+  ></SearchList>
+
   <SearchBar
-    :isEditing="isEditing"
-    @back="back"
-    @searching="searching"
+    :uiMode="uiMode"
+    @exitEditMode="exitEditMode"
+    @searchFor="searchFor"
   ></SearchBar>
 </template>
 
@@ -16,20 +21,20 @@ import EntryEditor from "./components/EntryEditor.vue";
 import { ref, onMounted } from "vue";
 
 // holds the results of a search (rendered)
-const searchData = ref([]);
-const isEditing = ref(true);
+const currentEntries = ref([]);
+const uiMode = ref("edit");
 
-const searching = (searchTerm) => {
+const searchFor = (searchTerm) => {
   // filter data using search keywords and add into result
-  searchData.value = window.backend.callFilterData(searchTerm);
+  currentEntries.value = window.backend.callFilterData(searchTerm);
 };
-const back = () => {
-  isEditing.value = false;
+const exitEditMode = () => {
+  uiMode.value = "search";
 };
 
 onMounted(() => {
   // first time search to show default result
-  searching("");
+  searchFor("");
 });
 </script>
 
@@ -52,6 +57,12 @@ onMounted(() => {
   font-family: inherit;
   color: inherit;
   background-color: transparent;
+}
+
+*::selection {
+  background-color: var(--fg);
+  color: var(--accent);
+  padding: 1rem;
 }
 
 input,

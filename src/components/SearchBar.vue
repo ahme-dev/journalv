@@ -1,25 +1,25 @@
 <template>
   <div class="SearchBar">
     <button
-      v-if="!props.isEditing"
+      v-if="props.uiMode == 'search'"
       class="searchButton fa-solid fa-bars"
     ></button>
     <input
-      v-if="!props.isEditing"
+      v-if="props.uiMode == 'search'"
       class="searchField"
-      @input="$emit('searching', searchTerm)"
+      @input="$emit('searchFor', searchTerm)"
       v-model="searchTerm"
       placeholder="start typing"
       type="text"
     />
 
     <button
-      v-if="props.isEditing"
+      v-if="props.uiMode == 'edit'"
       class="searchButton fa-solid fa-chevron-left"
-      @click="$emit('back')"
+      @click="$emit('exitEditMode')"
     ></button>
     <input
-      v-if="props.isEditing"
+      v-if="props.uiMode == 'edit'"
       type="text"
       placeholder="you are editing"
       disabled
@@ -32,7 +32,7 @@ import { ref, defineProps } from "vue";
 
 const searchTerm = ref("");
 const props = defineProps({
-  isEditing: Boolean,
+  uiMode: String,
 });
 </script>
 

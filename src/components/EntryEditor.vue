@@ -1,20 +1,8 @@
 <template>
   <div class="EntryEditor">
-    <input
-      class="editTitle"
-      type="text"
-      name=""
-      id=""
-      placeholder="Set a title"
-    />
+    <input class="editTitle" type="text" placeholder="Entry title" />
     <textarea class="editContent" id="" placeholder="Type whatever you whant" />
-    <input
-      class="editTags"
-      type="text"
-      name=""
-      id=""
-      placeholder="Add some tags (space separated)"
-    />
+    <input class="editTags" type="text" placeholder="Tags (space separated)" />
   </div>
 </template>
 
