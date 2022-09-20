@@ -1,22 +1,23 @@
 <template>
   <EntryEditor v-if="uiMode == 'edit'"></EntryEditor>
+  <EntryBar v-if="uiMode == 'edit'" @exitEditMode="exitEditMode"></EntryBar>
 
   <SearchList
     v-if="uiMode == 'search'"
     :currentEntries="currentEntries"
   ></SearchList>
-
   <SearchBar
-    :uiMode="uiMode"
+    v-if="uiMode == 'search'"
     @exitEditMode="exitEditMode"
     @searchFor="searchFor"
   ></SearchBar>
 </template>
 
 <script setup>
+import EntryEditor from "./components/EntryEditor.vue";
+import EntryBar from "./components/EntryBar.vue";
 import SearchBar from "./components/SearchBar.vue";
 import SearchList from "./components/SearchList.vue";
-import EntryEditor from "./components/EntryEditor.vue";
 
 import { ref, onMounted } from "vue";
 

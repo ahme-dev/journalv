@@ -1,27 +1,21 @@
 <template>
-  <div class="SearchBar">
-    <button class="fa-solid fa-bars"></button>
-    <input
-      @input="$emit('searchFor', searchTerm)"
-      v-model="searchTerm"
-      placeholder="start typing"
-      type="text"
-    />
+  <div class="EntryBar">
+    <button
+      class="fa-solid fa-chevron-left"
+      @click="$emit('exitEditMode')"
+    ></button>
+    <input type="text" placeholder="you are editing" disabled />
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-
-const searchTerm = ref("");
-</script>
+<script setup></script>
 
 <style scoped>
-.SearchBar {
+.EntryBar {
   display: grid;
   grid-template-columns: 1fr 9fr;
 }
-.SearchBar > * {
+.EntryBar > * {
   height: 100%;
   width: 100%;
 }
