@@ -1,5 +1,5 @@
 <template>
-  <div :class="['ListItem', { selected: props.selected }, props.type]">
+  <div :class="['ListItem', props.type]">
     <div class="itemLeft">
       <span
         :class="[
@@ -28,7 +28,6 @@ const props = defineProps({
   tags: Array,
   date: String,
   type: String,
-  selected: Boolean,
 });
 </script>
 

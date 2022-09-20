@@ -2,7 +2,7 @@
   <div class="SearchList">
     <div :key="entry.display" v-for="entry in props.currentEntries">
       <ListItem
-        :selected="entry.display == 1 ? true : false"
+        :class="entry.display == 1 ? 'selected' : ''"
         :date="entry.date"
         :title="entry.title"
         :tags="entry.tags"
