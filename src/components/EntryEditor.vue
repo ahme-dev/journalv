@@ -1,19 +1,19 @@
 <template>
   <div class="EntryEditor">
     <input
-      v-model="local.title"
+      v-model.lazy="local.title"
       class="editTitle"
       type="text"
       placeholder="Entry title"
     />
     <textarea
-      v-model="local.content"
+      v-model.lazy="local.content"
       class="editContent"
       id=""
       placeholder="Type whatever you whant"
     />
     <input
-      v-model="local.tags"
+      v-model.lazy="local.tags"
       class="editTags"
       type="text"
       placeholder="Tags (space separated)"
