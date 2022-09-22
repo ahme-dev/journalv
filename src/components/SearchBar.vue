@@ -3,7 +3,7 @@
     <button class="fa-solid fa-bars"></button>
     <input
       @input="store.searchFor(searchTerm)"
-      v-model="searchTerm"
+      v-model="local.searchTerm"
       placeholder="start typing"
       type="text"
     />
@@ -14,7 +14,9 @@
 import { useMainStore } from "@/store";
 import { ref } from "vue";
 
-const searchTerm = ref("");
+const local = ref({
+  searchTerm: "",
+});
 const store = useMainStore();
 </script>
 
