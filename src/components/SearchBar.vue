@@ -2,7 +2,7 @@
   <div class="SearchBar">
     <button class="fa-solid fa-bars"></button>
     <input
-      @input="$emit('searchFor', searchTerm)"
+      @input="store.searchFor(searchTerm)"
       v-model="searchTerm"
       placeholder="start typing"
       type="text"
@@ -11,9 +11,11 @@
 </template>
 
 <script setup>
+import { useMainStore } from "@/store";
 import { ref } from "vue";
 
 const searchTerm = ref("");
+const store = useMainStore();
 </script>
 
 <style scoped>

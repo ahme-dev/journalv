@@ -2,13 +2,17 @@
   <div class="EntryBar">
     <button
       class="fa-solid fa-chevron-left"
-      @click="$emit('exitEditMode')"
+      @click="store.setUiMode('search')"
     ></button>
     <input type="text" placeholder="you are editing" disabled />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useMainStore } from "@/store";
+
+const store = useMainStore();
+</script>
 
 <style scoped>
 .EntryBar {

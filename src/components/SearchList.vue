@@ -1,6 +1,6 @@
 <template>
   <div class="SearchList">
-    <div :key="entry.display" v-for="entry in props.currentEntries">
+    <div :key="entry.display" v-for="entry in store.currentEntries">
       <ListItem
         :class="entry.display == 1 ? 'selected' : ''"
         :date="entry.date"
@@ -14,11 +14,9 @@
 
 <script setup>
 import ListItem from "./ListItem.vue";
-import { defineProps } from "vue";
+import { useMainStore } from "@/store";
 
-const props = defineProps({
-  currentEntries: Array,
-});
+const store = useMainStore();
 </script>
 
 <style scoped>

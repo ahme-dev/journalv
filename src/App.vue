@@ -1,16 +1,9 @@
 <template>
-  <EntryEditor v-if="uiMode == 'edit'"></EntryEditor>
-  <EntryBar v-if="uiMode == 'edit'" @exitEditMode="exitEditMode"></EntryBar>
+  <EntryEditor v-if="store.uiMode == 'edit'"></EntryEditor>
+  <EntryBar v-if="store.uiMode == 'edit'"></EntryBar>
 
-  <SearchList
-    v-if="uiMode == 'search'"
-    :currentEntries="currentEntries"
-  ></SearchList>
-  <SearchBar
-    v-if="uiMode == 'search'"
-    @exitEditMode="exitEditMode"
-    @searchFor="searchFor"
-  ></SearchBar>
+  <SearchList v-if="store.uiMode == 'search'"></SearchList>
+  <SearchBar v-if="store.uiMode == 'search'"></SearchBar>
 </template>
 
 <script setup>
@@ -19,23 +12,14 @@ import EntryBar from "./components/EntryBar.vue";
 import SearchBar from "./components/SearchBar.vue";
 import SearchList from "./components/SearchList.vue";
 
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
+import { useMainStore } from "@/store";
 
-// holds the results of a search (rendered)
-const currentEntries = ref([]);
-const uiMode = ref("edit");
-
-const searchFor = (searchTerm) => {
-  // filter data using search keywords and add into result
-  currentEntries.value = window.backend.callFilterData(searchTerm);
-};
-const exitEditMode = () => {
-  uiMode.value = "search";
-};
+const store = useMainStore();
 
 onMounted(() => {
   // first time search to show default result
-  searchFor("");
+  store.searchFor("");
 });
 </script>
 

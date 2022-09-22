@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { readJournal, writeJournal } from "./io";
 
 // dummy data to use temporarily
