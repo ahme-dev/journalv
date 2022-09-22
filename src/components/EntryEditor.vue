@@ -1,12 +1,35 @@
 <template>
   <div class="EntryEditor">
-    <input class="editTitle" type="text" placeholder="Entry title" />
-    <textarea class="editContent" id="" placeholder="Type whatever you whant" />
-    <input class="editTags" type="text" placeholder="Tags (space separated)" />
+    <input
+      v-model="local.title"
+      class="editTitle"
+      type="text"
+      placeholder="Entry title"
+    />
+    <textarea
+      v-model="local.content"
+      class="editContent"
+      id=""
+      placeholder="Type whatever you whant"
+    />
+    <input
+      v-model="local.tags"
+      class="editTags"
+      type="text"
+      placeholder="Tags (space separated)"
+    />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const local = ref({
+  title: "",
+  content: "",
+  tags: "",
+});
+</script>
 
 <style scoped>
 .EntryEditor {
