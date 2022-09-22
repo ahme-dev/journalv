@@ -40,9 +40,6 @@ let runningData = dummyData;
 
 // filter all journal data using search keywords
 export function filterData(searchKeys) {
-  // counter to number entry display order
-  let counter = 0;
-
   // clean and split search keys
   const keys = searchKeys.toString().toLowerCase().trim().split(" ");
 
@@ -57,8 +54,6 @@ export function filterData(searchKeys) {
       if (!entryAsString.includes(key)) return false;
     }
 
-    // add number and filter entry in
-    listEntry.display = ++counter;
     return true;
   });
 

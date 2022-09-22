@@ -1,19 +1,18 @@
 <template>
   <div class="SearchList">
-    <div :key="entry.display" v-for="entry in store.currentEntries">
-      <ListItem
-        :class="entry.display == 1 ? 'selected' : ''"
-        :date="entry.date"
-        :title="entry.title"
-        :tags="entry.tags"
-        :type="entry.type"
-      ></ListItem>
-    </div>
+    <SearchItem
+      v-for="entry in store.currentEntries"
+      :key="entry.display"
+      :date="entry.date"
+      :title="entry.title"
+      :tags="entry.tags"
+      :type="entry.type"
+    ></SearchItem>
   </div>
 </template>
 
 <script setup>
-import ListItem from "./ListItem.vue";
+import SearchItem from "./SearchItem.vue";
 import { useMainStore } from "@/store";
 
 const store = useMainStore();
@@ -23,9 +22,10 @@ const store = useMainStore();
 .SearchList {
   display: flex;
   flex-direction: column-reverse;
-  justify-content: end;
-  gap: 1rem;
+  justify-content: flex-start;
+
   padding: 3rem;
+  gap: 1rem;
 
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
