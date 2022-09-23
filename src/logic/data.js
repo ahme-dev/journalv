@@ -62,3 +62,7 @@ export function filterData(searchKeys) {
 
   return newData;
 }
+
+export function addData(type, title) {
+  runningData.push({ type: type, title: title });
+}

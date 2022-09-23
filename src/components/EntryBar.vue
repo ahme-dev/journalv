@@ -1,9 +1,6 @@
 <template>
   <div class="EntryBar">
-    <button
-      class="fa-solid fa-chevron-left"
-      @click="store.setUiMode('search')"
-    ></button>
+    <button class="fa-solid fa-chevron-left" @click="clickedBack"></button>
     <input type="text" placeholder="you are editing" disabled />
   </div>
 </template>
@@ -12,6 +9,10 @@
 import { useMainStore } from "@/store";
 
 const store = useMainStore();
+const clickedBack = () => {
+  store.editorToEntry();
+  store.setUiMode("search");
+};
 </script>
 
 <style scoped>

@@ -1,19 +1,19 @@
 <template>
   <div class="EntryEditor">
     <input
-      v-model.lazy="local.title"
+      v-model.lazy="store.editorValues.title"
       class="editTitle"
       type="text"
       placeholder="Entry title"
     />
     <textarea
-      v-model.lazy="local.content"
+      v-model.lazy="store.editorValues.content"
       class="editContent"
       id=""
       placeholder="Type whatever you whant"
     />
     <input
-      v-model.lazy="local.tags"
+      v-model.lazy="store.editorValues.tags"
       class="editTags"
       type="text"
       placeholder="Tags (space separated)"
@@ -22,13 +22,9 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { useMainStore } from "@/store";
 
-const local = ref({
-  title: "",
-  content: "",
-  tags: "",
-});
+const store = useMainStore();
 </script>
 
 <style scoped>
