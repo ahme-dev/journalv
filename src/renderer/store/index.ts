@@ -13,7 +13,7 @@ export const useMainStore = defineStore("main", () => {
   });
 
   // pushes what is in the editor into entries array
-  const editorToEntry = (windowObj: any) => {
+  const editorToEntry = () => {
     addEntry(editorObj);
   };
 

@@ -8,6 +8,7 @@
     "allowJs": false,
     "jsx": "preserve",
     "noImplicitAny": true,
+    "noImplicitReturns": false,
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,

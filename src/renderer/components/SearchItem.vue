@@ -23,7 +23,6 @@
 
 <script setup lang="ts">
 import { useMainStore } from "../store/index";
-import { defineProps } from "vue";
 
 const props = defineProps({
   title: String,
