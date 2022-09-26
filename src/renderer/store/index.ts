@@ -7,14 +7,20 @@ export const useMainStore = defineStore("main", () => {
   const editorObj = ref({
     type: "day",
     title: "",
-    date: "",
+    date: "1 Oct 2022",
     content: "",
     tags: "",
   });
 
   // pushes what is in the editor into entries array
   const editorToEntry = () => {
-    addEntry({ ...editorObj.value, date: "1 Oct 2022" });
+    addEntry({
+      type: editorObj.value.type,
+      title: editorObj.value.title,
+      date: editorObj.value.date,
+      content: editorObj.value.content,
+      tags: editorObj.value.tags.split(" "),
+    });
   };
 
   // put the contents of an entry unto the editor
