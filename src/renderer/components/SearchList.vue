@@ -11,9 +11,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import SearchItem from "./SearchItem.vue";
-import { useMainStore } from "@/store";
+
+import { useMainStore } from "../store";
 
 const store = useMainStore();
 </script>

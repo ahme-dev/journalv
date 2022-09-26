@@ -1,5 +1,5 @@
 <template>
-  <div class="SearchItem">
+  <div class="SearchItem" @click="clickEntry">
     <div class="left">
       <p
         :class="[
@@ -21,14 +21,27 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { useMainStore } from "../store/index";
 import { defineProps } from "vue";
+
 const props = defineProps({
   title: String,
   tags: Array,
   date: String,
   type: String,
 });
+
+const store = useMainStore();
+
+const clickEntry = () => {
+  store.entryToEditor({
+    title: props.title,
+    tags: props.tags,
+    date: props.date,
+    type: props.type,
+  });
+};
 </script>
 
 <style scoped>
@@ -38,8 +51,6 @@ const props = defineProps({
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin: 0.5rem 0;
 
   background-color: var(--main);
 

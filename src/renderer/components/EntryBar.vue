@@ -5,12 +5,12 @@
   </div>
 </template>
 
-<script setup>
-import { useMainStore } from "@/store";
+<script setup lang="ts">
+import { useMainStore } from "../store";
 
 const store = useMainStore();
 const clickedBack = () => {
-  store.editorToEntry();
+  store.editorToEntry(window);
   store.setUiMode("search");
 };
 </script>

@@ -1,19 +1,19 @@
 <template>
   <div class="EntryEditor">
     <input
-      v-model.lazy="store.editorValues.title"
+      v-model.lazy="store.editorObj.title"
       class="editTitle"
       type="text"
       placeholder="Entry title"
     />
     <textarea
-      v-model.lazy="store.editorValues.content"
+      v-model.lazy="store.editorObj.content"
       class="editContent"
       id=""
       placeholder="Type whatever you whant"
     />
     <input
-      v-model.lazy="store.editorValues.tags"
+      v-model.lazy="store.editorObj.tags"
       class="editTags"
       type="text"
       placeholder="Tags (space separated)"
@@ -21,8 +21,8 @@
   </div>
 </template>
 
-<script setup>
-import { useMainStore } from "@/store";
+<script setup lang="ts">
+import { useMainStore } from "../store";
 
 const store = useMainStore();
 </script>

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "allowJs": false,
+    "jsx": "preserve",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client"]
+  },
+  "include": [
+    "./**/*.ts",
+    "./**/*.d.ts",
+    "./**/*.tsx",
+    "./**/*.vue",
+    "../main/logic/io.ts"
+  ]
+}

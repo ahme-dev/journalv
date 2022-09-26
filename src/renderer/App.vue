@@ -6,14 +6,14 @@
   <SearchBar v-if="store.uiMode == 'search'"></SearchBar>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import EntryEditor from "./components/EntryEditor.vue";
 import EntryBar from "./components/EntryBar.vue";
 import SearchBar from "./components/SearchBar.vue";
 import SearchList from "./components/SearchList.vue";
 
 import { onMounted } from "vue";
-import { useMainStore } from "@/store";
+import { useMainStore } from "./store";
 
 const store = useMainStore();
 
@@ -24,6 +24,8 @@ onMounted(() => {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Tajawal&display=swap");
+
 :root {
   --bg: #222;
   --fg: #eee;
@@ -67,8 +69,6 @@ body,
 #app {
   height: 100%;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Tajawal&display=swap");
 
 #app {
   font-family: Comfortaa, Tahoma, sans-serif;

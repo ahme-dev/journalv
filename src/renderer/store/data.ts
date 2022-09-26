@@ -1,12 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-import { readJournal, writeJournal } from "./io";
-
 // dummy data to use temporarily
 const dummyData = [
-  {
-    type: "command",
-    title: "Delete Day",
-  },
   {
     type: "day",
     title: "Performed the play",
@@ -39,9 +32,9 @@ const startData = [
 let runningData = dummyData;
 
 // filter all journal data using search keywords
-export function filterData(searchKeys) {
+export function filterEntries(searchKeys: string): any {
   // clean and split search keys
-  const keys = searchKeys.toString().toLowerCase().trim().split(" ");
+  const keys: string[] = searchKeys.toString().toLowerCase().trim().split(" ");
 
   // filter the data by entries
   const newData = runningData.filter((listEntry) => {
@@ -63,6 +56,29 @@ export function filterData(searchKeys) {
   return newData;
 }
 
-export function addData(type, title) {
-  runningData.push({ type: type, title: title });
+export function addEntry(entryObj: any): void {
+  // filter out any value that is similar to entry that's being added
+  const newData = runningData.filter((entry) => {
+    if (entry.type !== entryObj.type) {
+      return true;
+    }
+    if (entry.date !== entryObj.date) {
+      return true;
+    }
+
+    return false;
+  });
+
+  // use the filtered array
+  runningData = newData;
+
+  // add the entry
+  runningData.push(entryObj);
+}
+
+// find the wanted entry and return it
+export function findEntry(entryObj: any): any {
+  return runningData.find(
+    (entry) => entry.date == entryObj.date && entry.type == entryObj.type
+  );
 }

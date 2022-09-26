@@ -10,13 +10,14 @@
   </div>
 </template>
 
-<script setup>
-import { useMainStore } from "@/store";
+<script setup lang="ts">
+import { useMainStore } from "../store";
 import { ref } from "vue";
 
 const local = ref({
   searchTerm: "",
 });
+
 const store = useMainStore();
 </script>
 

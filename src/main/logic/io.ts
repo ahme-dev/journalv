@@ -1,7 +1,10 @@
-const fs = require("graceful-fs");
+import fs from "graceful-fs";
 
 // turn data object representing a journal into json and write it to a file
-export function writeJournal(journalObject, journalPath = "./journalv.db") {
+export function writeJournal(
+  journalObject: object,
+  journalPath = "./journalv.db"
+) {
   fs.writeFileSync(journalPath, JSON.stringify(journalObject));
 }
 
