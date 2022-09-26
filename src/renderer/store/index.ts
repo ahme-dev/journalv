@@ -4,7 +4,7 @@ import { addEntry, filterEntries, findEntry } from "./data";
 
 export const useMainStore = defineStore("main", () => {
   // stores data currently in the entry editor
-  let editorObj = ref({
+  const editorObj = ref({
     type: "day",
     title: "",
     date: "",
@@ -14,13 +14,13 @@ export const useMainStore = defineStore("main", () => {
 
   // pushes what is in the editor into entries array
   const editorToEntry = () => {
-    addEntry(editorObj);
+    addEntry({ ...editorObj.value, date: "1 Oct 2022" });
   };
 
   // put the contents of an entry unto the editor
   const entryToEditor = (entryObj: object) => {
     let foundEntry = findEntry(entryObj);
-    editorObj = foundEntry;
+    editorObj.value = foundEntry;
   };
 
   // holds the entries filtered based on search

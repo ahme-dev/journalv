@@ -16,7 +16,7 @@
 
     <div class="right" v-if="props.type !== 'command'">
       <h4 class="date">{{ props.date }}</h4>
-      <h5 class="tags">{{ props.tags }}</h5>
+      <h5 class="tags" v-if="props.tags">{{ props.tags }}</h5>
     </div>
   </div>
 </template>
@@ -77,7 +77,7 @@ const clickEntry = () => {
 .right {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
 
   padding: 0.5rem 1rem;
 }
