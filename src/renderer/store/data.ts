@@ -1,5 +1,5 @@
 // dummy data to use temporarily
-const dummyData = [
+let data = [
   {
     type: "day",
     title: "Performed the play",
@@ -20,24 +20,13 @@ const dummyData = [
   },
 ];
 
-// data to display when search comes up with nothing
-const startData = [
-  {
-    display: 1,
-    type: "command",
-    title: "Nothing to show here!",
-  },
-];
-
-let runningData = dummyData;
-
 // filter all journal data using search keywords
 export function filterEntries(searchKeys: string): any {
   // clean and split search keys
   const keys: string[] = searchKeys.toString().toLowerCase().trim().split(" ");
 
   // filter the data by entries
-  const newData = runningData.filter((listEntry) => {
+  const newData = data.filter((listEntry) => {
     // clean entry and turn into string
     const entryAsString = JSON.stringify(listEntry).toLowerCase().trim();
 
@@ -51,14 +40,15 @@ export function filterEntries(searchKeys: string): any {
   });
 
   // if result was empty
-  if (newData.toString() == "") return startData;
+  if (newData.toString() == "")
+    return [{ type: "command", title: "Nothing to show!" }];
 
   return newData;
 }
 
 export function addEntry(entryObj: any): void {
   // filter out any value that is similar to entry that's being added
-  const newData = runningData.filter((entry) => {
+  const newData = data.filter((entry) => {
     if (entry.type !== entryObj.type) {
       return true;
     }
@@ -70,15 +60,15 @@ export function addEntry(entryObj: any): void {
   });
 
   // use the filtered array
-  runningData = newData;
+  data = newData;
 
   // add the entry
-  runningData.push(entryObj);
+  data.push(entryObj);
 }
 
 // find the wanted entry and return it
 export function findEntry(entryObj: any): any {
-  return runningData.find(
+  return data.find(
     (entry) => entry.date == entryObj.date && entry.type == entryObj.type
   );
 }
