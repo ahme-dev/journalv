@@ -2,11 +2,7 @@
   <div class="SearchList">
     <SearchItem
       v-for="entry in store.currentEntries"
-      :key="entry.display"
-      :date="entry.date"
-      :title="entry.title"
-      :tags="entry.tags"
-      :type="entry.type"
+      :entry="entry"
     ></SearchItem>
   </div>
 </template>

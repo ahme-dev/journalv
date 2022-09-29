@@ -10,7 +10,7 @@ import { useMainStore } from "../store";
 
 const store = useMainStore();
 const clickedBack = () => {
-  store.editorToEntry();
+  store.editorExport();
   store.setUiMode("search");
 };
 </script>

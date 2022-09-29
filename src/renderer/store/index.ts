@@ -1,42 +1,61 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { addEntry, filterEntries, findEntry } from "./data";
+import {
+  Entry,
+  createEntry,
+  readEntry,
+  updateEntry,
+  deleteEntry,
+} from "./data";
 
 export const useMainStore = defineStore("main", () => {
   // stores data currently in the entry editor
-  const editorObj = ref({
+  const editorObj = ref<Entry>({
     type: "day",
     title: "",
     date: "1 Oct 2022",
     content: "",
-    tags: "",
+    tags: [""],
   });
 
   // pushes what is in the editor into entries array
-  const editorToEntry = () => {
-    addEntry({
-      type: editorObj.value.type,
-      title: editorObj.value.title,
-      date: editorObj.value.date,
-      content: editorObj.value.content,
-      tags: editorObj.value.tags.split(" "),
-    });
+  const editorExport = () => {
+    createEntry(editorObj.value);
   };
 
   // put the contents of an entry unto the editor
-  const entryToEditor = (entryObj: object) => {
-    let foundEntry = findEntry(entryObj);
-    editorObj.value = foundEntry;
+  const editorImport = (entryObj: Entry) => {
+    let foundEntry = readEntry(
+      (entry) => entry.date == entryObj.date && entry.type == entryObj.type
+    );
+    editorObj.value = foundEntry[0];
   };
 
   // holds the entries filtered based on search
-  const currentEntries = ref([
-    { display: 0, date: "", title: "", tags: [""], type: "" },
-  ]);
+  const currentEntries = ref<Entry[]>();
 
   // filter data using search keywords and add into result
-  const searchFor = (searchTerm: string) => {
-    currentEntries.value = filterEntries(searchTerm);
+  const searchFor = (searchTerms: string) => {
+    // clean and split search keys
+    const keys: string[] = searchTerms
+      .toString()
+      .toLowerCase()
+      .trim()
+      .split(" ");
+
+    // filter the data by entries
+    currentEntries.value = readEntry((listEntry) => {
+      // clean entry and turn into string
+      const entryAsString = JSON.stringify(listEntry).toLowerCase().trim();
+
+      // search each keyword
+      // if it fails to include all keys don't return true
+      for (const key of keys) {
+        if (!entryAsString.includes(key)) return false;
+      }
+
+      return true;
+    });
   };
 
   // holds the results of a search (rendered)
@@ -48,8 +67,8 @@ export const useMainStore = defineStore("main", () => {
 
   return {
     editorObj,
-    editorToEntry,
-    entryToEditor,
+    editorExport,
+    editorImport,
 
     currentEntries,
     searchFor,
