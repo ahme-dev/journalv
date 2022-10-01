@@ -33,7 +33,7 @@ export const useMainStore = defineStore("main", () => {
   };
 
   // holds the entries filtered based on search
-  const currentEntries = ref<Entry[]>();
+  const shownEntries = ref<Entry[]>();
 
   // filter data using search keywords and add into result
   const searchFor = (searchTerms: string) => {
@@ -54,7 +54,7 @@ export const useMainStore = defineStore("main", () => {
     });
 
     // change entries to the filtered ones
-    currentEntries.value = filteredEntries;
+    shownEntries.value = filteredEntries;
   };
 
   // holds the results of a search (rendered)
@@ -69,7 +69,7 @@ export const useMainStore = defineStore("main", () => {
     closeEditor,
     openEditor,
 
-    currentEntries,
+    shownEntries,
     searchFor,
 
     uiMode,
