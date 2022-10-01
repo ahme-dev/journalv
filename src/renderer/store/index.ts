@@ -18,9 +18,18 @@ export const useMainStore = defineStore("main", () => {
     tags: [""],
   });
 
-  // pushes what is in the editor into entries array
+  // pushes what is in the editor into data
   const editorExport = () => {
-    createEntry(editorObj.value);
+    updateEntry((entry) => {
+      // search for entry existing
+      if (
+        entry.type == editorObj.value.type &&
+        entry.date == editorObj.value.date
+      ) {
+        // if an entry with same type and date was found set its values to editor
+        entry = editorObj.value;
+      }
+    });
   };
 
   // put the contents of an entry unto the editor
@@ -59,7 +68,7 @@ export const useMainStore = defineStore("main", () => {
   };
 
   // holds the results of a search (rendered)
-  const uiMode = ref("edit");
+  const uiMode = ref("search");
   // setter for ui mode
   const setUiMode = (mode: string) => {
     uiMode.value = mode;

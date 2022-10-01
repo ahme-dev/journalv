@@ -34,8 +34,12 @@
 
   const store = useMainStore();
 
+  // to run when an entry is clicked
   const clickEntry = () => {
+    // import entry into editor
     store.editorImport(props);
+    // change ui to editor
+    store.uiMode = "edit";
   };
 </script>
 

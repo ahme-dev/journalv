@@ -9,9 +9,15 @@
   import { useMainStore } from "../store";
 
   const store = useMainStore();
+
+  // when back button is pressed
   const clickedBack = () => {
+    // put what's in the editor into an entry
     store.editorExport();
+    // change ui to search
     store.setUiMode("search");
+    // do an empty search to update entries
+    store.searchFor("");
   };
 </script>
 

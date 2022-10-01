@@ -41,6 +41,8 @@ export function readEntry(
   return data.filter(filteringFunction);
 }
 
-export function updateEntry(finderFunction: Function, entry: Entry): void {}
+export function updateEntry(finderFunction: (entry: Entry) => void): void {
+  data.map(finderFunction);
+}
 
-export function deleteEntry(finderFunction: Function, entry: Entry): void {}
+export function deleteEntry(finderFunction: () => {}): void {}
