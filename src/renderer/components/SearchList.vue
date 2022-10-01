@@ -8,7 +8,6 @@
   import SearchItem from "./SearchItem.vue";
 
   import { useMainStore } from "../store";
-
   const store = useMainStore();
 </script>
 

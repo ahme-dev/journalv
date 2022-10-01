@@ -1,24 +1,16 @@
 <template>
   <div class="EntryBar">
-    <button class="fa-solid fa-chevron-left" @click="clickedBack"></button>
+    <button
+      class="fa-solid fa-chevron-left"
+      @click="store.closeEditor()"
+    ></button>
     <input type="text" placeholder="you are editing" disabled />
   </div>
 </template>
 
 <script setup lang="ts">
   import { useMainStore } from "../store";
-
   const store = useMainStore();
-
-  // when back button is pressed
-  const clickedBack = () => {
-    // put what's in the editor into an entry
-    store.editorExport();
-    // change ui to search
-    store.setUiMode("search");
-    // do an empty search to update entries
-    store.searchFor("");
-  };
 </script>
 
 <style scoped>

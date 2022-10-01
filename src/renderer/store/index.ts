@@ -20,9 +20,14 @@ export const useMainStore = defineStore("main", () => {
   });
 
   // pushes what is in the editor into data
-  const editorExport = () => updateEntry(editorObj.value);
+  const closeEditor = () => {
+    updateEntry(editorObj.value);
+    uiMode.value = "search";
+    searchFor("");
+  };
   // put the contents of an entry unto the editor
-  const editorImport = (entryObj: Entry) => {
+  const openEditor = (entryObj: Entry) => {
+    uiMode.value = "edit";
     let foundEntry = readEntry((entry) => entry.id == entryObj.id);
     editorObj.value = foundEntry[0];
   };
@@ -53,7 +58,7 @@ export const useMainStore = defineStore("main", () => {
   };
 
   // holds the results of a search (rendered)
-  const uiMode = ref("search");
+  const uiMode = ref("edit");
   // setter for ui mode
   const setUiMode = (mode: string) => {
     uiMode.value = mode;
@@ -61,8 +66,8 @@ export const useMainStore = defineStore("main", () => {
 
   return {
     editorObj,
-    editorExport,
-    editorImport,
+    closeEditor,
+    openEditor,
 
     currentEntries,
     searchFor,

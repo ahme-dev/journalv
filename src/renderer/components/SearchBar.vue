@@ -11,14 +11,14 @@
 </template>
 
 <script setup lang="ts">
-  import { useMainStore } from "../store";
   import { ref } from "vue";
+
+  import { useMainStore } from "../store";
+  const store = useMainStore();
 
   const local = ref({
     searchTerm: "",
   });
-
-  const store = useMainStore();
 </script>
 
 <style scoped>

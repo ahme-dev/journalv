@@ -23,7 +23,6 @@
 
 <script setup lang="ts">
   import { useMainStore } from "../store";
-
   const store = useMainStore();
 </script>
 

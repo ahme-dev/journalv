@@ -1,5 +1,5 @@
 <template>
-  <div class="SearchItem" @click="clickEntry">
+  <div class="SearchItem" @click="store.openEditor(props)">
     <div class="left">
       <p
         :class="[
@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
   import { useMainStore } from "../store/index";
+  const store = useMainStore();
 
   const props = defineProps<{
     title: string;
@@ -32,16 +33,6 @@
     content?: string;
     id: number;
   }>();
-
-  const store = useMainStore();
-
-  // to run when an entry is clicked
-  const clickEntry = () => {
-    // import entry into editor
-    store.editorImport(props);
-    // change ui to editor
-    store.uiMode = "edit";
-  };
 </script>
 
 <style scoped>
