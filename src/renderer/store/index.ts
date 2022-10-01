@@ -19,17 +19,32 @@ export const useMainStore = defineStore("main", () => {
     id: 1,
   });
 
-  // pushes what is in the editor into data
   const closeEditor = () => {
+    // update the entry in data.ts
     updateEntry(editorObj.value);
-    uiMode.value = "search";
+    // update shownEntries using empty search
     searchInEntries("");
+    // switch ui
+    uiMode.value = "search";
   };
-  // put the contents of an entry unto the editor
+
   const openEditor = (entryObj: Entry) => {
-    uiMode.value = "edit";
+    // read entry from data.ts
     let foundEntry = readEntry((entry) => entry.id == entryObj.id);
+    // set editor to read entry data.ts
     editorObj.value = foundEntry[0];
+    // switch ui
+    uiMode.value = "edit";
+  };
+
+  const openEditorNew = (type: string) => {
+    // create a new entry
+    let newEntry = { id: 1, title: "", type: type };
+    createEntry(newEntry);
+    // set editor to new entry data
+    editorObj.value = newEntry;
+    // switch ui
+    uiMode.value = "edit";
   };
 
   // holds the entries filtered based on search
@@ -70,6 +85,7 @@ export const useMainStore = defineStore("main", () => {
     editorObj,
     closeEditor,
     openEditor,
+    openEditorNew,
 
     shownEntries,
     searchInEntries,
