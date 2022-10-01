@@ -31,7 +31,7 @@
 
 <style scoped>
   .SearchItem {
-    flex-basis: 3rem;
+    flex: 0 0 3rem;
 
     display: flex;
     justify-content: space-between;
