@@ -22,59 +22,59 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from "../store/index";
+  import { useMainStore } from "../store/index";
 
-const props = defineProps<{
-  title: string;
-  type: string;
-  tags?: string[];
-  date?: string;
-  content?: string;
-}>();
+  const props = defineProps<{
+    title: string;
+    type: string;
+    tags?: string[];
+    date?: string;
+    content?: string;
+  }>();
 
-const store = useMainStore();
+  const store = useMainStore();
 
-const clickEntry = () => {
-  store.editorImport(props.entry);
-};
+  const clickEntry = () => {
+    store.editorImport(props);
+  };
 </script>
 
 <style scoped>
-.SearchItem {
-  flex-basis: 3rem;
+  .SearchItem {
+    flex-basis: 3rem;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  background-color: var(--main);
+    background-color: var(--main);
 
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-}
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
 
-.SearchItem:hover {
-  background-color: var(--accent);
-  cursor: pointer;
-}
+  .SearchItem:hover {
+    background-color: var(--accent);
+    cursor: pointer;
+  }
 
-.left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 
-  padding: 0.5rem 1rem;
-}
+    padding: 0.5rem 1rem;
+  }
 
-.left .icon {
-  margin-right: 1rem;
-}
+  .left .icon {
+    margin-right: 1rem;
+  }
 
-.right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 
-  padding: 0.5rem 1rem;
-}
+    padding: 0.5rem 1rem;
+  }
 </style>

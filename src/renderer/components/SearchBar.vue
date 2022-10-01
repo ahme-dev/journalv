@@ -11,42 +11,42 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from "../store";
-import { ref } from "vue";
+  import { useMainStore } from "../store";
+  import { ref } from "vue";
 
-const local = ref({
-  searchTerm: "",
-});
+  const local = ref({
+    searchTerm: "",
+  });
 
-const store = useMainStore();
+  const store = useMainStore();
 </script>
 
 <style scoped>
-.SearchBar {
-  display: grid;
-  grid-template-columns: 1fr 9fr;
-}
-.SearchBar > * {
-  height: 100%;
-  width: 100%;
-}
-input {
-  font-size: 1.2rem;
-  padding: 1rem 2rem;
-  font-weight: bold;
+  .SearchBar {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+  }
+  .SearchBar > * {
+    height: 100%;
+    width: 100%;
+  }
+  input {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    font-weight: bold;
 
-  border-right: solid 1rem var(--accent);
-  background-color: var(--main);
-}
-input:focus {
-  outline: none;
-}
-button {
-  cursor: pointer;
-  font-size: 1.2rem;
-  padding: 1rem;
+    border-right: solid 1rem var(--accent);
+    background-color: var(--main);
+  }
+  input:focus {
+    outline: none;
+  }
+  button {
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 1rem;
 
-  color: var(--bg);
-  background-color: var(--accent);
-}
+    color: var(--bg);
+    background-color: var(--accent);
+  }
 </style>
