@@ -2,7 +2,7 @@
   <div class="SearchBar">
     <button class="fa-solid fa-bars"></button>
     <input
-      @input="store.searchFor(local.searchTerm)"
+      @input="store.searchInEntries(local.searchTerm)"
       v-model="local.searchTerm"
       placeholder="start typing"
       type="text"

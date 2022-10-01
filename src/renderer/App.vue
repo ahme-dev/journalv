@@ -19,7 +19,7 @@
 
   onMounted(() => {
     // first time search to show default result
-    store.searchFor("");
+    store.searchInEntries("");
   });
 </script>
 

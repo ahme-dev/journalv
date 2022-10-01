@@ -23,7 +23,7 @@ export const useMainStore = defineStore("main", () => {
   const closeEditor = () => {
     updateEntry(editorObj.value);
     uiMode.value = "search";
-    searchFor("");
+    searchInEntries("");
   };
   // put the contents of an entry unto the editor
   const openEditor = (entryObj: Entry) => {
@@ -35,25 +35,27 @@ export const useMainStore = defineStore("main", () => {
   // holds the entries filtered based on search
   const shownEntries = ref<Entry[]>();
 
-  // filter data using search keywords and add into result
-  const searchFor = (searchTerms: string) => {
-    // clean and split search keys
-    const keys: string[] = searchTerms
+  // filter all entries using search words and change shown ones
+  const searchInEntries = (searchWords: string) => {
+    // clean and split search words
+    const wordsCleaned: string[] = searchWords
       .toString()
       .toLowerCase()
       .trim()
       .split(" ");
 
     // filter the data by entries
-    const filteredEntries = readEntry((listEntry) => {
-      for (const key of keys) {
-        if (!JSON.stringify(listEntry).toLowerCase().trim().includes(key))
-          return false;
+    const filteredEntries = readEntry((entry) => {
+      // make entry into a string and clean
+      let entryStr = JSON.stringify(entry).toLowerCase().trim();
+      // go through each word and see if entry string has them
+      for (const word of wordsCleaned) {
+        if (!entryStr.includes(word)) return false;
       }
       return true;
     });
 
-    // change entries to the filtered ones
+    // change shown entries to the newly filtered ones
     shownEntries.value = filteredEntries;
   };
 
@@ -70,7 +72,7 @@ export const useMainStore = defineStore("main", () => {
     openEditor,
 
     shownEntries,
-    searchFor,
+    searchInEntries,
 
     uiMode,
     setUiMode,
