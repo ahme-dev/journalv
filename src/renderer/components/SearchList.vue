@@ -25,4 +25,13 @@
 
     overflow-y: scroll;
   }
+  .SearchList::-webkit-scrollbar {
+    background-color: var(--main);
+    border-top-right-radius: 1rem;
+    overflow: hidden;
+  }
+  .SearchList::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-top-right-radius: 1rem;
+  }
 </style>

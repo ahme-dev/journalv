@@ -1,23 +1,39 @@
 <template>
   <div class="EntryEditor">
-    <input
-      v-model.lazy="store.editorObj.title"
-      class="editTitle"
-      type="text"
-      placeholder="Entry title"
-    />
-    <textarea
-      v-model.lazy="store.editorObj.content"
-      class="editContent"
-      id=""
-      placeholder="Type whatever you whant"
-    />
-    <input
-      v-model.lazy="store.editorObj.tags"
-      class="editTags"
-      type="text"
-      placeholder="Tags (space separated)"
-    />
+    <div class="editSection">
+      <input
+        v-model.lazy="store.editorObj.title"
+        class="editTitle"
+        type="text"
+        placeholder="Entry title"
+      />
+      <div>
+        <p class="editType highlight">
+          {{ store.editorObj.type.toUpperCase() }}
+        </p>
+      </div>
+    </div>
+    <div class="editSection">
+      <textarea
+        v-model.lazy="store.editorObj.content"
+        class="editContent"
+        id=""
+        placeholder="Type whatever you whant"
+      />
+    </div>
+    <div class="editSection">
+      <input
+        v-model.lazy="store.editorObj.tags"
+        class="editTags"
+        type="text"
+        placeholder="Tags (space separated)"
+      />
+      <div>
+        <p class="editDate highlight">
+          {{ store.editorObj.date || "No Date" }}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -68,7 +84,31 @@
     border-top-left-radius: 1rem;
   }
 
+  .editSection {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+    flex-direction: row;
+  }
+
+  .editSection > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .editSection .highlight {
+    background-color: var(--main);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
   .editTags {
     text-align: center;
+  }
+
+  .editTags,
+  .editContent,
+  .editTitle {
+    flex-grow: 1;
   }
 </style>
