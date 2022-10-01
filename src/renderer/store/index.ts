@@ -75,7 +75,7 @@ export const useMainStore = defineStore("main", () => {
   };
 
   // holds the results of a search (rendered)
-  const uiMode = ref("edit");
+  const uiMode = ref("search");
   // setter for ui mode
   const setUiMode = (mode: string) => {
     uiMode.value = mode;
