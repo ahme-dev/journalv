@@ -1,15 +1,9 @@
 <template>
   <div class="SearchItem" @click="store.openEditor(props)">
     <div class="left">
-      <p
-        :class="[
-          'icon',
-          'fa-solid',
-          { 'fa-moon': props.type == 'dream' },
-          { 'fa-sun': props.type == 'day' },
-          { 'fa-star': props.type == 'command' },
-        ]"
-      ></p>
+      <p v-if="props.type == 'dream'" class="icon fa-solid fa-moon"></p>
+      <p v-if="props.type == 'day'" class="icon fa-solid fa-sun"></p>
+      <p v-if="props.type == 'command'" class="icon fa-solid fa-star"></p>
 
       <h3 class="title">{{ props.title }}</h3>
     </div>
