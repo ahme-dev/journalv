@@ -13,30 +13,17 @@ export const useMainStore = defineStore("main", () => {
   const editorObj = ref<Entry>({
     type: "day",
     title: "",
-    date: "1 Oct 2022",
+    date: "2 Oct 2022",
     content: "",
     tags: [""],
+    id: 1,
   });
 
   // pushes what is in the editor into data
-  const editorExport = () => {
-    updateEntry((entry) => {
-      // search for entry existing
-      if (
-        entry.type == editorObj.value.type &&
-        entry.date == editorObj.value.date
-      ) {
-        // if an entry with same type and date was found set its values to editor
-        entry = editorObj.value;
-      }
-    });
-  };
-
+  const editorExport = () => updateEntry(editorObj.value);
   // put the contents of an entry unto the editor
   const editorImport = (entryObj: Entry) => {
-    let foundEntry = readEntry(
-      (entry) => entry.date == entryObj.date && entry.type == entryObj.type
-    );
+    let foundEntry = readEntry((entry) => entry.id == entryObj.id);
     editorObj.value = foundEntry[0];
   };
 
@@ -53,18 +40,16 @@ export const useMainStore = defineStore("main", () => {
       .split(" ");
 
     // filter the data by entries
-    currentEntries.value = readEntry((listEntry) => {
-      // clean entry and turn into string
-      const entryAsString = JSON.stringify(listEntry).toLowerCase().trim();
-
-      // search each keyword
-      // if it fails to include all keys don't return true
+    const filteredEntries = readEntry((listEntry) => {
       for (const key of keys) {
-        if (!entryAsString.includes(key)) return false;
+        if (!JSON.stringify(listEntry).toLowerCase().trim().includes(key))
+          return false;
       }
-
       return true;
     });
+
+    // change entries to the filtered ones
+    currentEntries.value = filteredEntries;
   };
 
   // holds the results of a search (rendered)

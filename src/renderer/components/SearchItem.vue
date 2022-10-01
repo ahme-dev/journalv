@@ -30,6 +30,7 @@
     tags?: string[];
     date?: string;
     content?: string;
+    id: number;
   }>();
 
   const store = useMainStore();
