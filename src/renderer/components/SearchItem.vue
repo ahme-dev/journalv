@@ -5,18 +5,18 @@
         :class="[
           'icon',
           'fa-solid',
-          { 'fa-moon': props.entry.type == 'dream' },
-          { 'fa-sun': props.entry.type == 'day' },
-          { 'fa-star': props.entry.type == 'command' },
+          { 'fa-moon': props.type == 'dream' },
+          { 'fa-sun': props.type == 'day' },
+          { 'fa-star': props.type == 'command' },
         ]"
       ></p>
 
-      <h3 class="title">{{ props.entry.title }}</h3>
+      <h3 class="title">{{ props.title }}</h3>
     </div>
 
-    <div class="right" v-if="props.entry.type !== 'command'">
-      <h4 class="date">{{ props.entry.date }}</h4>
-      <h5 class="tags" v-if="props.entry.tags">{{ props.entry.tags }}</h5>
+    <div class="right" v-if="props.type !== 'command'">
+      <h4 class="date">{{ props.date }}</h4>
+      <h5 class="tags" v-if="props.tags">{{ props.tags }}</h5>
     </div>
   </div>
 </template>
@@ -25,13 +25,11 @@
 import { useMainStore } from "../store/index";
 
 const props = defineProps<{
-  entry: {
-    title: string;
-    type: string;
-    tags?: string[];
-    date?: string;
-    content?: string;
-  };
+  title: string;
+  type: string;
+  tags?: string[];
+  date?: string;
+  content?: string;
 }>();
 
 const store = useMainStore();

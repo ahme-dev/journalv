@@ -1,9 +1,6 @@
 <template>
   <div class="SearchList">
-    <SearchItem
-      v-for="entry in store.currentEntries"
-      :entry="entry"
-    ></SearchItem>
+    <SearchItem v-for="entry in store.currentEntries" :="entry"></SearchItem>
   </div>
 </template>
 
