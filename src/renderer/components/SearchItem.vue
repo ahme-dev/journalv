@@ -1,5 +1,5 @@
 <template>
-  <div class="SearchItem" @click="store.openEditor(props)">
+  <div class="SearchItem" @click="store.openEditor(props.id)">
     <div class="left">
       <p v-if="props.type == 'dream'" class="icon fa-solid fa-moon"></p>
       <p v-if="props.type == 'day'" class="icon fa-solid fa-sun"></p>

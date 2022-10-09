@@ -35,10 +35,21 @@ let data: Entry[] = [
 
 // CRUD interface high-order functions for the data
 
-export function createEntry(entry: Entry): void {
-  // generate new id
-  entry.id = data[data.length - 1].id + 1;
-  data.push(entry);
+export function createEntry(type: string, date: string): number {
+  // create an entry type from parameters
+  let newEntry: Entry = {
+    id: data[data.length - 1].id + 1,
+    title: "",
+    content: "",
+    type: type,
+    date: date,
+  };
+
+  // add entry to data list
+  data.push(newEntry);
+
+  // return the id of the created entry
+  return newEntry.id;
 }
 
 export function readEntry(filterFunc: (entry: Entry) => boolean): Entry[] {

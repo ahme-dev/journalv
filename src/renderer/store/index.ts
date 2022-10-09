@@ -1,3 +1,4 @@
+import moment from "moment";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import {
@@ -28,23 +29,26 @@ export const useMainStore = defineStore("main", () => {
     uiMode.value = "search";
   };
 
-  const openEditor = (entryObj: Entry) => {
-    // read entry from data.ts
-    let foundEntry = readEntry((entry) => entry.id == entryObj.id);
-    // set editor to read entry data.ts
-    editorObj.value = foundEntry[0];
+  const openEditor = (id: number) => {
+    // read entry from data.ts and set editor to it
+    editorObj.value = readEntry((entry) => entry.id == id)[0];
     // switch ui
     uiMode.value = "edit";
   };
 
   const openEditorNew = (type: string) => {
-    // create a new entry
-    let newEntry = { id: 1, title: "", type: type };
-    createEntry(newEntry);
-    // set editor to new entry data
-    editorObj.value = newEntry;
-    // switch ui
-    uiMode.value = "edit";
+    // set date to today
+    let date = moment().format("D MMM YYYY");
+
+    // see if today has an entry
+    let foundEntry = readEntry(
+      (entry) => entry.type == type && entry.date == date
+    );
+
+    // if entry exists only open it
+    if (foundEntry[0] !== undefined) openEditor(foundEntry[0].id);
+    // otherwise create a new entry and open it
+    else openEditor(createEntry(type, date));
   };
 
   // holds the entries filtered based on search
