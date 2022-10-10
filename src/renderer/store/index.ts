@@ -34,7 +34,7 @@ export const useMainStore = defineStore("main", () => {
 
   const openEditor = (id: number) => {
     // read entry from data.ts and set editor to it
-    editorObj.value = readEntry((entry) => entry.id == id)[0];
+    editorObj.value = readEntry((entry) => entry.id === id)[0];
     // switch ui
     uiMode.value = "edit";
   };
@@ -45,11 +45,11 @@ export const useMainStore = defineStore("main", () => {
 
     // see if today has an entry
     let foundEntry = readEntry(
-      (entry) => entry.type == type && entry.date == date
+      (entry) => entry.type === type && entry.date === date
     );
 
     // if entry exists only open it
-    if (foundEntry[0] !== undefined) openEditor(foundEntry[0].id);
+    if (foundEntry[0]) openEditor(foundEntry[0].id);
     // otherwise create a new entry and open it
     else openEditor(createEntry(type, date));
   };

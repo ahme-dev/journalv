@@ -58,7 +58,7 @@ export function readEntry(filterFunc: (entry: Entry) => boolean): Entry[] {
 
 export function updateEntry(entry: Entry): void {
   data.map((element) => {
-    if (element.id == entry.id) element = entry;
+    if (element.id === entry.id) element = entry;
   });
 }
 
