@@ -10,6 +10,9 @@ import {
 } from "./data";
 
 export const useMainStore = defineStore("main", () => {
+  // holds the results of a search (rendered)
+  const uiMode = ref<"search" | "edit">("search");
+
   // stores data currently in the entry editor
   const editorObj = ref<Entry>({
     type: "day",
@@ -78,14 +81,9 @@ export const useMainStore = defineStore("main", () => {
     shownEntries.value = filteredEntries;
   };
 
-  // holds the results of a search (rendered)
-  const uiMode = ref("search");
-  // setter for ui mode
-  const setUiMode = (mode: string) => {
-    uiMode.value = mode;
-  };
-
   return {
+    uiMode,
+
     editorObj,
     closeEditor,
     openEditor,
@@ -93,8 +91,5 @@ export const useMainStore = defineStore("main", () => {
 
     shownEntries,
     searchInEntries,
-
-    uiMode,
-    setUiMode,
   };
 });
