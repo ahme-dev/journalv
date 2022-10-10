@@ -8,9 +8,15 @@
       <h3 class="title">{{ props.title }}</h3>
     </div>
 
+    <!-- for days and dreams -->
     <div class="right" v-if="props.type !== 'command'">
-      <h4 class="date">{{ props.date }}</h4>
-      <h5 class="tags" v-if="props.tags">{{ props.tags.join(" ") }}</h5>
+      <h4>{{ props.date }}</h4>
+      <h5 v-if="props.tags">{{ props.tags.join(" ") }}</h5>
+    </div>
+
+    <!-- for commands -->
+    <div class="right" v-else>
+      <h4>command</h4>
     </div>
   </div>
 </template>
@@ -32,7 +38,7 @@
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
 
     background-color: var(--main);
 
@@ -48,19 +54,24 @@
   .left {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
-
-    padding: 0.5rem 1rem;
+    height: 100%;
   }
 
   .left .icon {
-    margin-right: 1rem;
+    height: 100%;
+    padding: 1rem;
+    background-color: var(--accent);
   }
 
   .right {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: flex-end;
+    justify-content: center;
+    height: 100%;
 
     padding: 0.5rem 1rem;
   }
