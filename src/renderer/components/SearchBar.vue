@@ -1,10 +1,6 @@
 <template>
   <div class="SearchBar">
     <button class="fa-solid fa-bars"></button>
-    <button
-      @click="store.openEditorNew('dream')"
-      class="fa-solid fa-plus"
-    ></button>
     <input
       @input="store.searchInEntries(local.searchTerm)"
       v-model="local.searchTerm"
@@ -28,7 +24,7 @@
 <style scoped>
   .SearchBar {
     display: grid;
-    grid-template-columns: 1fr 1fr 9fr;
+    grid-template-columns: 1fr 9fr;
   }
   .SearchBar > * {
     height: 100%;

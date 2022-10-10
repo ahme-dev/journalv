@@ -1,8 +1,9 @@
 <template>
-  <div class="SearchItem" @click="store.openEditor(props.id)">
+  <div class="SearchItem">
     <div class="left">
       <p v-if="props.type == 'dream'" class="icon fa-solid fa-moon"></p>
       <p v-if="props.type == 'day'" class="icon fa-solid fa-sun"></p>
+      <p v-if="props.type == 'command'" class="icon fa-solid fa-star"></p>
 
       <h3 class="title">{{ props.title }}</h3>
     </div>
@@ -15,16 +16,13 @@
 </template>
 
 <script setup lang="ts">
-  import { useMainStore } from "../store/index";
-  const store = useMainStore();
-
   const props = defineProps<{
     title: string;
     type: string;
     tags?: string[];
     date?: string;
     content?: string;
-    id: number;
+    id?: number;
   }>();
 </script>
 

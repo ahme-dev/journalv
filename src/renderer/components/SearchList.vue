@@ -1,6 +1,23 @@
 <template>
   <div class="SearchList">
-    <SearchItem v-for="entry in store.shownEntries" :="entry"></SearchItem>
+    <!-- found items -->
+    <SearchItem
+      v-for="entry in store.shownEntries"
+      :="entry"
+      @click="store.openEditor(entry.id)"
+    ></SearchItem>
+    <!-- commands -->
+    <SearchItem
+      type="command"
+      title="New day"
+      @click="store.openEditorNew('day')"
+    ></SearchItem>
+    <SearchItem
+      type="command"
+      title="New dream"
+      @click="store.openEditorNew('dream')"
+    ></SearchItem>
+    <!-- commands end -->
   </div>
 </template>
 

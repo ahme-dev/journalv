@@ -1,9 +1,9 @@
 <template>
-  <EntryEditor v-if="store.uiMode == 'edit'"></EntryEditor>
-  <EntryBar v-if="store.uiMode == 'edit'"></EntryBar>
-
   <SearchList v-if="store.uiMode == 'search'"></SearchList>
+  <EntryEditor v-else></EntryEditor>
+
   <SearchBar v-if="store.uiMode == 'search'"></SearchBar>
+  <EntryBar v-else></EntryBar>
 </template>
 
 <script setup lang="ts">
