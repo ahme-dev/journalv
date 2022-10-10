@@ -3,14 +3,13 @@
     <div class="left">
       <p v-if="props.type == 'dream'" class="icon fa-solid fa-moon"></p>
       <p v-if="props.type == 'day'" class="icon fa-solid fa-sun"></p>
-      <p v-if="props.type == 'command'" class="icon fa-solid fa-star"></p>
 
       <h3 class="title">{{ props.title }}</h3>
     </div>
 
     <div class="right" v-if="props.type !== 'command'">
       <h4 class="date">{{ props.date }}</h4>
-      <h5 class="tags" v-if="props.tags">{{ props.tags }}</h5>
+      <h5 class="tags" v-if="props.tags">{{ props.tags.join(" ") }}</h5>
     </div>
   </div>
 </template>

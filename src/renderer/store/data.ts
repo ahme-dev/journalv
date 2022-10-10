@@ -1,10 +1,10 @@
 // type for entries
 export interface Entry {
-  type: string;
+  type: "day" | "dream";
   title: string;
-  content?: string;
-  tags?: string[];
-  date?: string;
+  content: string;
+  tags: string[];
+  date: string;
   id: number;
 }
 
@@ -14,6 +14,7 @@ let data: Entry[] = [
     type: "day",
     title: "Performed the play",
     tags: ["scared", "proud"],
+    content: "",
     date: "19 Sep 2022",
     id: 221,
   },
@@ -22,12 +23,14 @@ let data: Entry[] = [
     title: "Was congratulated for my acting",
     tags: ["happy", "proud"],
     date: "20 Sep 2022",
+    content: "",
     id: 222,
   },
   {
     type: "dream",
     title: "Dreamt of climbing a mountain",
     tags: ["scared", "excited"],
+    content: "",
     date: "28 Oct 2022",
     id: 223,
   },
@@ -35,7 +38,7 @@ let data: Entry[] = [
 
 // CRUD interface high-order functions for the data
 
-export function createEntry(type: string, date: string): number {
+export function createEntry(type: "day" | "dream", date: string): number {
   // create an entry type from parameters
   let newEntry: Entry = {
     id: data[data.length - 1].id + 1,
@@ -43,6 +46,7 @@ export function createEntry(type: string, date: string): number {
     content: "",
     type: type,
     date: date,
+    tags: [""],
   };
 
   // add entry to data list
@@ -56,9 +60,18 @@ export function readEntry(filterFunc: (entry: Entry) => boolean): Entry[] {
   return data.filter(filterFunc);
 }
 
-export function updateEntry(entry: Entry): void {
+export function updateEntry(
+  id: number,
+  newTitle: string,
+  newContent: string,
+  newTags: string[]
+): void {
   data.map((element) => {
-    if (element.id === entry.id) element = entry;
+    if (element.id === id) {
+      element.title = newTitle;
+      element.content = newContent;
+      element.tags = newTags;
+    }
   });
 }
 

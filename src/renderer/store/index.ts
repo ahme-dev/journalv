@@ -14,18 +14,20 @@ export const useMainStore = defineStore("main", () => {
   const uiMode = ref<"search" | "edit">("search");
 
   // stores data currently in the entry editor
-  const editorObj = ref<Entry>({
+  const editorObj = ref({
     type: "day",
     title: "",
-    date: "2 Oct 2022",
+    date: "",
     content: "",
-    tags: [""],
+    tags: "",
     id: 1,
   });
 
   const closeEditor = () => {
     // update the entry in data.ts
-    updateEntry(editorObj.value);
+    let { id, title, content, tags } = editorObj.value;
+    updateEntry(id, title, content, tags.split(" "));
+
     // update shownEntries using empty search
     searchInEntries("");
     // switch ui
@@ -33,13 +35,17 @@ export const useMainStore = defineStore("main", () => {
   };
 
   const openEditor = (id: number) => {
-    // read entry from data.ts and set editor to it
-    editorObj.value = readEntry((entry) => entry.id === id)[0];
+    // read entry from data.ts
+    let foundEntry = readEntry((entry) => entry.id === id)[0];
+
+    // set editor to entry
+    editorObj.value = { ...foundEntry, tags: foundEntry.tags.join(" ") };
+
     // switch ui
     uiMode.value = "edit";
   };
 
-  const openEditorNew = (type: string) => {
+  const openEditorNew = (type: "day" | "dream") => {
     // set date to today
     let date = moment().format("D MMM YYYY");
 
