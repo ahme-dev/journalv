@@ -54,6 +54,11 @@
     border-top-right-radius: 1rem;
   }
 
+  .EntryEditor input,
+  .EntryEditor textarea {
+    transition: 0.2s ease-out;
+  }
+
   textarea:focus,
   input:focus {
     background-color: var(--main);

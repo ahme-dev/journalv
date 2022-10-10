@@ -15,7 +15,7 @@
     </div>
 
     <!-- for commands -->
-    <div class="right" v-else>
+    <div class="right command" v-else>
       <h4>command</h4>
     </div>
   </div>
@@ -44,6 +44,8 @@
 
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
+
+    transition: 0.2s ease-out;
   }
 
   .SearchItem:hover {
@@ -73,8 +75,16 @@
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center;
-    height: 100%;
 
+    height: 100%;
     padding: 0.5rem 1rem;
+
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  .command {
+    color: var(--bg);
+    background-color: var(--accent);
   }
 </style>
