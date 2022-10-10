@@ -39,7 +39,6 @@
     padding: 0;
     margin: 0;
     border: 0;
-    transition: 0.2s;
     box-sizing: border-box;
     font-family: inherit;
     color: inherit;

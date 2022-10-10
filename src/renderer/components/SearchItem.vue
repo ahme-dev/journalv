@@ -48,6 +48,7 @@
 
   .SearchItem:hover {
     background-color: var(--accent);
+    color: var(--bg);
     cursor: pointer;
   }
 
@@ -63,6 +64,7 @@
     height: 100%;
     padding: 1rem;
     background-color: var(--accent);
+    color: var(--bg);
   }
 
   .right {
