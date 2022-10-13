@@ -1,5 +1,5 @@
 <template>
-  <div class="SearchItem">
+  <div class="SearchItem" @click="itemClicked">
     <div class="left">
       <p v-if="props.type == 'dream'" class="icon fa-solid fa-moon"></p>
       <p v-if="props.type == 'day'" class="icon fa-solid fa-sun"></p>
@@ -22,13 +22,28 @@
 </template>
 
 <script setup lang="ts">
+  import { useMainStore } from "../store";
+
+  const itemClicked = () =>
+    props.type == "command"
+      ? // if is command
+        props.title.includes("day")
+        ? // if is day
+          store.openEditorNew("day")
+        : // if is not day
+          store.openEditorNew("dream")
+      : // if is not command
+        store.openEditor(props.id);
+
+  const store = useMainStore();
+
   const props = defineProps<{
     title: string;
     type: string;
     tags?: string[];
     date?: string;
     content?: string;
-    id?: number;
+    id: number;
   }>();
 </script>
 
