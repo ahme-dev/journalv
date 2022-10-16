@@ -92,4 +92,4 @@ export function updateEntry(
   });
 }
 
-export function deleteEntry(): void {}
+export function deleteEntry(): void { }

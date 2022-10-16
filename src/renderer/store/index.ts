@@ -54,10 +54,11 @@ export const useMainStore = defineStore("main", () => {
       (entry) => entry.type === type && entry.date === date
     );
 
-    // if entry exists only open it
-    if (foundEntry[0]) openEditor(foundEntry[0].id);
-    // otherwise create a new entry and open it
-    else openEditor(createEntry(type, date));
+    (foundEntry[0]) ?
+      // if entry exists only open it
+      openEditor(foundEntry[0].id) :
+      // otherwise create a new entry and open it
+      openEditor(createEntry(type, date));
   };
 
   // holds the entries filtered based on search

@@ -25,15 +25,13 @@
   import { useMainStore } from "../store";
 
   const itemClicked = () => {
-    if (props.type == "command") {
-      // if is a command
-      props.title.includes("Day")
+    props.type == "command"
+      ? // if is a command
+        props.title.includes("Day")
         ? store.openEditorNew("day")
-        : store.openEditorNew("dream");
-    } else {
-      // if is not command
-      store.openEditor(props.id);
-    }
+        : store.openEditorNew("dream")
+      : // if is not command
+        store.openEditor(props.id);
   };
 
   const store = useMainStore();
