@@ -24,16 +24,17 @@
 <script setup lang="ts">
   import { useMainStore } from "../store";
 
-  const itemClicked = () =>
-    props.type == "command"
-      ? // if is command
-        props.title.includes("day")
-        ? // if is day
-          store.openEditorNew("day")
-        : // if is not day
-          store.openEditorNew("dream")
-      : // if is not command
-        store.openEditor(props.id);
+  const itemClicked = () => {
+    if (props.type == "command") {
+      // if is a command
+      props.title.includes("Day")
+        ? store.openEditorNew("day")
+        : store.openEditorNew("dream");
+    } else {
+      // if is not command
+      store.openEditor(props.id);
+    }
+  };
 
   const store = useMainStore();
 
