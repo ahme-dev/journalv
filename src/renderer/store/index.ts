@@ -58,12 +58,30 @@ export const useMainStore = defineStore("main", () => {
 
     // filter the data by entries
     const filteredEntries = readEntry((entry) => {
-      // make entry into a string and clean
-      let entryStr = JSON.stringify(entry).toLowerCase().trim();
-      // go through each word and see if entry string has them
+      // go through each word and see if it matches entry prop
       for (const word of wordsCleaned) {
-        if (!entryStr.includes(word)) return false;
+        switch (word[0]) {
+          // check for type of entry
+          case ':':
+            if (!entry.type.toLowerCase().includes(word.slice(1))) return false
+            break;
+          // check for tags of entry
+          case '#':
+            if (!entry.tags.toString().toLowerCase().includes(word.slice(1))) return false
+            break;
+          // check for date of entry
+          case '>':
+            if (!entry.date.toLowerCase().includes(word.slice(1))) return false
+            break;
+          // check entry title
+          default:
+            if (!entry.title.toLowerCase().includes(word.slice(1))) return false
+            break;
+        }
       }
+
+      // if all words passed against the props
+      // then return the entry
       return true;
     });
 
