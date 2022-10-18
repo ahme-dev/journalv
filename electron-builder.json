@@ -1,5 +1,5 @@
 {
-  "appId": "systems.ahmed.app",
+  "appId": "systems.ahmed.journalv",
   "directories": {
     "output": "dist"
   },
@@ -7,13 +7,13 @@
     "oneClick": false,
     "perMachine": false,
     "allowToChangeInstallationDirectory": true,
-    "shortcutName": "Electron App"
+    "shortcutName": "JournalV"
   },
   "win": {
     "target": "nsis"
   },
   "linux": {
-    "target": ["snap"]
+    "target": ["appimage"]
   },
   "files": [
     "build/main/**/*",

@@ -1,5 +1,7 @@
 {
   "name": "journalv",
+  "author": "ahmed.systems",
+  "description": "App for journaling your days and dreams.",
   "version": "0.1.0",
   "main": "build/main/main.js",
   "scripts": {
