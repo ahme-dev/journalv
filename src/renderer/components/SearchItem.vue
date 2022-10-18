@@ -1,5 +1,9 @@
 <template>
-  <div class="SearchItem" @click="itemClicked">
+  <div
+    class="SearchItem"
+    :class="{ highlight: props.order == 0 }"
+    @click="itemClicked"
+  >
     <div class="left">
       <p v-if="props.type == 'dream'" class="icon fa-solid fa-moon"></p>
       <p v-if="props.type == 'day'" class="icon fa-solid fa-sun"></p>
@@ -43,6 +47,7 @@
     date?: string;
     content?: string;
     id: number;
+    order: number;
   }>();
 </script>
 
@@ -62,6 +67,7 @@
     transition: 0.2s ease-out;
   }
 
+  .highlight,
   .SearchItem:hover {
     background-color: var(--accent);
     color: var(--bg);

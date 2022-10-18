@@ -1,6 +1,10 @@
 <template>
   <div class="SearchList">
-    <SearchItem v-for="entry in store.shownEntries" :="entry"></SearchItem>
+    <SearchItem
+      v-for="(entry, index) in store.shownEntries"
+      :="entry"
+      :order="index"
+    ></SearchItem>
   </div>
 </template>
 
