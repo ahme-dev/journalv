@@ -36,7 +36,7 @@ export const useMainStore = defineStore("main", () => {
 
   const openEditor = (order: number) => {
     // read entry from data.ts
-    let foundEntry = shownEntries.value[0];
+    let foundEntry = shownEntries.value[order];
 
     // set editor to entry
     editorObj.value = { ...foundEntry, tags: foundEntry.tags.join(" ") };
