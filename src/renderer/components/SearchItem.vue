@@ -2,7 +2,7 @@
   <div
     class="SearchItem"
     :class="{ highlight: props.order == 0 }"
-    @click="itemClicked"
+    @click="store.openEditor(props.order)"
   >
     <div class="left">
       <p v-if="props.type == 'dream'" class="icon fa-solid fa-moon"></p>
@@ -27,16 +27,6 @@
 
 <script setup lang="ts">
   import { useMainStore } from "../store";
-
-  const itemClicked = () => {
-    props.type == "command"
-      ? // if is a command
-        props.title.includes("Day")
-        ? store.openEditorNew("day")
-        : store.openEditorNew("dream")
-      : // if is not command
-        store.openEditor(props.id);
-  };
 
   const store = useMainStore();
 

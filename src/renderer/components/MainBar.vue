@@ -2,8 +2,8 @@
   <div class="MainBar">
     <button @click="getClick()" :class="getIcon()"></button>
     <input
-      @input="store.searchInEntries(searchTerm)"
-      @keyup.enter="openFirstItem"
+      @input="store.updateShownEntries(searchTerm)"
+      @keyup.enter="store.openEditor(1)"
       v-model="searchTerm"
       :placeholder="getText()"
       :disabled="!(store.uiMode == 'search')"
@@ -17,13 +17,6 @@
 
   import { useMainStore } from "../store";
   const store = useMainStore();
-
-  // on enter open the first item
-  const openFirstItem = () => {
-    if (store.shownEntries) {
-      store.openEditor(store.shownEntries[0].id);
-    }
-  };
 
   // on the button being clicked
   const getClick = () => {

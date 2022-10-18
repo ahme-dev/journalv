@@ -8,8 +8,6 @@
 
 <script setup lang="ts">
   import EntryEditor from "./components/EntryEditor.vue";
-  import EntryBar from "./components/EntryBar.vue";
-  import SearchBar from "./components/MainBar.vue";
   import SearchList from "./components/SearchList.vue";
   import MainBar from "./components/MainBar.vue";
 
@@ -21,7 +19,7 @@
 
   onMounted(() => {
     // first time search to show default result
-    store.searchInEntries("");
+    store.updateShownEntries("");
   });
 </script>
 

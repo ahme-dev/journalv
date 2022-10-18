@@ -29,14 +29,14 @@ export const useMainStore = defineStore("main", () => {
     updateEntry(id, title, content, tags.split(" "));
 
     // update shownEntries using empty search
-    searchInEntries("");
+    updateShownEntries("");
     // switch ui
     uiMode.value = "search";
   };
 
-  const openEditor = (id: number) => {
+  const openEditor = (order: number) => {
     // read entry from data.ts
-    let foundEntry = readEntry((entry) => entry.id === id)[0];
+    let foundEntry = shownEntries.value[0];
 
     // set editor to entry
     editorObj.value = { ...foundEntry, tags: foundEntry.tags.join(" ") };
@@ -48,7 +48,7 @@ export const useMainStore = defineStore("main", () => {
   const shownEntries = ref<Entry[]>();
 
   // filter all entries using search words and change shown ones
-  const searchInEntries = (searchWords: string) => {
+  const updateShownEntries = (searchWords: string) => {
     // clean and split search words
     const wordsCleaned: string[] = searchWords
       .toString()
@@ -98,6 +98,6 @@ export const useMainStore = defineStore("main", () => {
     openEditorNew,
 
     shownEntries,
-    searchInEntries,
+    updateShownEntries,
   };
 });
