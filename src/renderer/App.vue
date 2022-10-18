@@ -19,6 +19,7 @@
 
   onMounted(() => {
     // first time search to show default result
+    store.changeStyle("orange");
     store.updateShownEntries("");
   });
 </script>
@@ -30,6 +31,7 @@
     --bg: #222;
     --fg: #eee;
     --main: rgba(70, 70, 70, 0.5);
+    /* will be modified by a function */
     --accent: rgb(214, 161, 82);
   }
 

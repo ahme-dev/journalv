@@ -107,6 +107,16 @@ export const useMainStore = defineStore("main", () => {
       openEditor(createEntry(type, date));
   };
 
+  // style change
+  const changeStyle = (style: 'cyan' | 'orange' | 'emerald') => {
+    const styles = {
+      cyan: '#44bbcc',
+      orange: '#ee8844',
+      emerald: '#22bb66'
+    }
+    document.documentElement.style.setProperty('--accent', styles[style])
+  }
+
   return {
     uiMode,
 
@@ -117,5 +127,7 @@ export const useMainStore = defineStore("main", () => {
 
     shownEntries,
     updateShownEntries,
+
+    changeStyle,
   };
 });
