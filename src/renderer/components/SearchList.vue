@@ -1,8 +1,6 @@
 <template>
   <div class="SearchList">
-    <!-- found items -->
     <SearchItem v-for="entry in store.shownEntries" :="entry"></SearchItem>
-    <!-- commands end -->
   </div>
 </template>
 
