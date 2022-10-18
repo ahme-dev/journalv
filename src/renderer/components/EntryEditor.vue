@@ -55,26 +55,38 @@
   }
 
   .EntryEditor input,
-  .EntryEditor textarea {
+  .EntryEditor .editContent {
     transition: 0.2s ease-out;
   }
 
-  textarea:focus,
+  .editContent:focus,
   input:focus {
     background-color: var(--main);
     border-bottom: 0.2rem solid var(--accent);
   }
 
-  textarea,
+  .editContent,
   input {
     border-bottom: 0.2rem solid transparent;
   }
 
-  textarea {
+  .editContent {
     padding: 1rem;
     resize: none;
     font-size: 1rem;
   }
+
+  /* scrollbar */
+  .editContent::-webkit-scrollbar {
+    background-color: var(--main);
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .editContent::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    cursor: pointer;
+  }
+  /* scrollbar end */
 
   input {
     font-weight: bold;
