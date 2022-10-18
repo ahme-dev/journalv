@@ -8,7 +8,7 @@
   <div class="AppMenu">
     <div class="title">
       <h2>JournalV</h2>
-      <span>github.com/ahmedkabd/journalv</span>
+      <h5>github.com/ahmedkabd/journalv</h5>
     </div>
     <div class="items">
       <!-- items -->
@@ -38,6 +38,7 @@
     justify-content: space-between;
 
     padding: 3rem;
+    padding-top: 0rem;
     gap: 1rem;
 
     border-top-left-radius: 1rem;
@@ -59,15 +60,17 @@
     align-self: center;
 
     padding: 1rem;
-    border-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 
-    background-color: var(--main);
-    color: var(--accent);
+    background-color: var(--accent);
+    color: var(--bg);
   }
 
   .items {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 
@@ -75,6 +78,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 1rem;
 
     padding: 1rem;
@@ -84,6 +88,7 @@
   }
   .options {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
   .option {
