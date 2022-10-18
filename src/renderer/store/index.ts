@@ -11,7 +11,7 @@ import {
 
 export const useMainStore = defineStore("main", () => {
   // holds the results of a search (rendered)
-  const uiMode = ref<"search" | "edit">("search");
+  const uiMode = ref<"search" | "edit" | "menu">("search");
 
   // stores data currently in the entry editor
   const editorObj = ref({

@@ -1,19 +1,21 @@
 <template>
   <SearchList v-if="store.uiMode == 'search'"></SearchList>
+  <AppMenu v-else-if="store.uiMode == 'menu'"></AppMenu>
   <EntryEditor v-else></EntryEditor>
 
-  <SearchBar v-if="store.uiMode == 'search'"></SearchBar>
-  <EntryBar v-else></EntryBar>
+  <MainBar></MainBar>
 </template>
 
 <script setup lang="ts">
   import EntryEditor from "./components/EntryEditor.vue";
   import EntryBar from "./components/EntryBar.vue";
-  import SearchBar from "./components/SearchBar.vue";
+  import SearchBar from "./components/MainBar.vue";
   import SearchList from "./components/SearchList.vue";
+  import MainBar from "./components/MainBar.vue";
 
   import { onMounted } from "vue";
   import { useMainStore } from "./store";
+  import AppMenu from "./components/AppMenu.vue";
 
   const store = useMainStore();
 
