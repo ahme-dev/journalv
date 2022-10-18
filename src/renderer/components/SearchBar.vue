@@ -3,6 +3,7 @@
     <button class="fa-solid fa-bars"></button>
     <input
       @input="store.searchInEntries(local.searchTerm)"
+      @keyup.enter="openFirstItem"
       v-model="local.searchTerm"
       placeholder="start typing"
       type="text"
@@ -15,6 +16,12 @@
 
   import { useMainStore } from "../store";
   const store = useMainStore();
+
+  const openFirstItem = () => {
+    if (store.shownEntries) {
+      store.openEditor(store.shownEntries[0].id);
+    }
+  };
 
   const local = ref({
     searchTerm: "",

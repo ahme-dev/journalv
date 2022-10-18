@@ -1,6 +1,6 @@
 // type for entries
 export interface Entry {
-  type: "day" | "dream" | "command";
+  type: "day" | "dream";
   title: string;
   content: string;
   tags: string[];
@@ -8,25 +8,8 @@ export interface Entry {
   id: number;
 }
 
+// dummy data
 let data: Entry[] = [
-  // commands
-  {
-    type: "command",
-    title: "New Day",
-    tags: [""],
-    content: "",
-    date: "",
-    id: 991,
-  },
-  {
-    type: "command",
-    title: "New Dream",
-    tags: [""],
-    content: "",
-    date: "",
-    id: 992,
-  },
-  // dummy data
   {
     type: "day",
     title: "Performed the play",

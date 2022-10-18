@@ -44,23 +44,6 @@ export const useMainStore = defineStore("main", () => {
     // switch ui
     uiMode.value = "edit";
   };
-
-  const openEditorNew = (type: "day" | "dream") => {
-    // set date to today
-    let date = moment().format("D MMM YYYY");
-
-    // see if today has an entry
-    let foundEntry = readEntry(
-      (entry) => entry.type === type && entry.date === date
-    );
-
-    (foundEntry[0]) ?
-      // if entry exists only open it
-      openEditor(foundEntry[0].id) :
-      // otherwise create a new entry and open it
-      openEditor(createEntry(type, date));
-  };
-
   // holds the entries filtered based on search
   const shownEntries = ref<Entry[]>();
 
@@ -86,6 +69,24 @@ export const useMainStore = defineStore("main", () => {
 
     // change shown entries to the newly filtered ones
     shownEntries.value = filteredEntries;
+  };
+
+  // specific to commands
+
+  const openEditorNew = (type: "day" | "dream") => {
+    // set date to today
+    let date = moment().format("D MMM YYYY");
+
+    // see if today has an entry
+    let foundEntry = readEntry(
+      (entry) => entry.type === type && entry.date === date
+    );
+
+    (foundEntry[0]) ?
+      // if entry exists only open it
+      openEditor(foundEntry[0].id) :
+      // otherwise create a new entry and open it
+      openEditor(createEntry(type, date));
   };
 
   return {
