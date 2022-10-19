@@ -10,6 +10,24 @@
       <h2>JournalV</h2>
       <h5>github.com/ahmedkabd/journalv</h5>
     </div>
+    <div class="item tips">
+      <h3>How to search:</h3>
+      <h4 class="tip">
+        To filter only one type of entry use <b class="sel">:</b> as in
+        <b class="sel"> :day </b>
+        <b class="sel"> :dream </b>
+      </h4>
+      <h4 class="tip">
+        - To search for tags prefix with <b class="sel">#</b> as in
+        <b class="sel"> #happy </b>
+        <b class="sel"> #park </b>
+      </h4>
+      <h4 class="tip">
+        - Selecting specific dates is done with <b class="sel">></b> as in
+        <b class="sel">>feb</b>
+        <b class="sel">>2022</b>
+      </h4>
+    </div>
     <div class="items">
       <!-- items -->
       <div class="item">
@@ -123,5 +141,26 @@
   .option:hover {
     background-color: var(--accent);
     color: var(--bg);
+  }
+
+  .tips {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tip {
+    font-weight: normal;
+
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+  }
+  .sel {
+    background-color: var(--accent);
+    color: var(--bg);
+    border-radius: 0.5rem;
+    padding: 0.1rem 0.3rem;
+    margin: 0 0.2rem;
   }
 </style>
