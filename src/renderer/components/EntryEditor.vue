@@ -128,4 +128,7 @@
   .editTitle {
     flex-grow: 1;
   }
+  .highlight {
+    box-shadow: 1px 1px 2px var(--bg);
+  }
 </style>

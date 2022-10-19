@@ -76,6 +76,7 @@
 
     background-color: var(--accent);
     color: var(--bg);
+    box-shadow: 1px 1px 2px var(--bg);
   }
 
   .items {
@@ -92,7 +93,9 @@
     flex-wrap: wrap;
     gap: 1rem;
 
-    padding: 1rem;
+    box-shadow: 1px 1px 2px var(--bg);
+
+    padding: 0.7rem 1rem;
     border-radius: 1rem;
 
     background-color: var(--main);
@@ -106,11 +109,18 @@
     font-size: smaller;
     font-weight: bold;
 
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 0.5rem;
 
     cursor: pointer;
 
+    background-color: var(--main);
+    color: var(--fg);
+    box-shadow: 1px 1px 2px var(--bg);
+
+    transition-duration: 0.2s;
+  }
+  .option:hover {
     background-color: var(--accent);
     color: var(--bg);
   }

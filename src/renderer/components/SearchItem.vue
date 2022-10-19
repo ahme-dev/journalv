@@ -51,6 +51,8 @@
 
     background-color: var(--main);
 
+    box-shadow: 1px 1px 2px var(--bg);
+
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
 
