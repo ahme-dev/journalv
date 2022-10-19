@@ -130,5 +130,10 @@
   }
   .highlight {
     box-shadow: 1px 1px 2px var(--bg);
+    transition: 0.2s ease-out;
+  }
+  .highlight:hover {
+    background-color: var(--accent);
+    color: var(--bg);
   }
 </style>

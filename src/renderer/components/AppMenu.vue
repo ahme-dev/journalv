@@ -118,7 +118,7 @@
     color: var(--fg);
     box-shadow: 1px 1px 2px var(--bg);
 
-    transition-duration: 0.2s;
+    transition: 0.2s ease-out;
   }
   .option:hover {
     background-color: var(--accent);
