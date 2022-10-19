@@ -90,6 +90,24 @@ export const useMainStore = defineStore("main", () => {
   };
 
   // specific to commands
+  let menuItems = [
+    {
+      title: "Add entry:",
+      options: [
+        { option: "New day", func: () => openEditorNew("day") },
+        { option: "New dream", func: () => openEditorNew("dream") },
+      ],
+    },
+    {
+      title: "Change theme:",
+      options: [
+        { option: "Emerald", func: () => changeStyle("emerald") },
+        { option: "cyan", func: () => changeStyle("cyan") },
+        { option: "orange", func: () => changeStyle("orange") },
+      ],
+    },
+  ];
+
 
   const openEditorNew = (type: "day" | "dream") => {
     // set date to today
@@ -130,10 +148,12 @@ export const useMainStore = defineStore("main", () => {
     editorObj,
     closeEditor,
     openEditor,
-    openEditorNew,
 
     shownEntries,
     updateShownEntries,
+
+    menuItems,
+    openEditorNew,
 
     changeStyle,
   };
