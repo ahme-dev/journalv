@@ -18,12 +18,12 @@
         <b class="sel"> :dream </b>
       </h4>
       <h4 class="tip">
-        - To search for tags prefix with <b class="sel">#</b> as in
+        To search for tags prefix with <b class="sel">#</b> as in
         <b class="sel"> #happy </b>
         <b class="sel"> #park </b>
       </h4>
       <h4 class="tip">
-        - Selecting specific dates is done with <b class="sel">></b> as in
+        Selecting specific dates is done with <b class="sel">></b> as in
         <b class="sel">>feb</b>
         <b class="sel">>2022</b>
       </h4>
