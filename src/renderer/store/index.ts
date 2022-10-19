@@ -36,10 +36,10 @@ export const useMainStore = defineStore("main", () => {
 
   const openEditor = (order: number) => {
     // read entry from data.ts
-    let foundEntry = shownEntries.value[order];
+    let selectedEntry = shownEntries.value[order];
 
     // set editor to entry
-    editorObj.value = { ...foundEntry, tags: foundEntry.tags.join(" ") };
+    editorObj.value = { ...selectedEntry, tags: selectedEntry.tags.join(" ") };
 
     // switch ui
     uiMode.value = "edit";
@@ -96,15 +96,22 @@ export const useMainStore = defineStore("main", () => {
     let date = moment().format("D MMM YYYY");
 
     // see if today has an entry
-    let foundEntry = readEntry(
+    let foundEntries = readEntry(
       (entry) => entry.type === type && entry.date === date
     );
 
-    (foundEntry[0]) ?
-      // if entry exists only open it
-      openEditor(foundEntry[0].id) :
-      // otherwise create a new entry and open it
-      openEditor(createEntry(type, date));
+    if (foundEntries[0]) {
+      // if entry was found set editor to entry
+      editorObj.value = { ...foundEntries[0], tags: foundEntries[0].tags.join(" ") };
+    } else {
+      // otherwise create a new entry, read it, and open it
+      let id = createEntry(type, date);
+      let entries = readEntry((entry) => entry.id == id);
+      editorObj.value = { ...entries[0], tags: entries[0].tags.join(" ") };
+    }
+
+    // switch ui
+    uiMode.value = "edit";
   };
 
   // style change

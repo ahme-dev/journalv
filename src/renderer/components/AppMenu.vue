@@ -13,6 +13,17 @@
     <div class="items">
       <!-- items -->
       <div class="item">
+        <h3>Add entry:</h3>
+        <div class="options">
+          <button class="option" @click="store.openEditorNew('day')">
+            Day
+          </button>
+          <button class="option" @click="store.openEditorNew('dream')">
+            Dream
+          </button>
+        </div>
+      </div>
+      <div class="item">
         <h3>Change theme:</h3>
         <div class="options">
           <button class="option" @click="store.changeStyle('emerald')">
@@ -96,7 +107,7 @@
     font-weight: bold;
 
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 
     cursor: pointer;
 
