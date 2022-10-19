@@ -35,6 +35,9 @@ export const useMainStore = defineStore("main", () => {
   };
 
   const openEditor = (order: number) => {
+    // return if there are no shown entries
+    if (!shownEntries.value) return;
+
     // read entry from data.ts
     let selectedEntry = shownEntries.value[order];
 
