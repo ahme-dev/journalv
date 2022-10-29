@@ -7,10 +7,12 @@
 
 <template>
   <div class="AppMenu">
+    <!-- title -->
     <div class="title">
       <h2>JournalV</h2>
       <h5>github.com/ahmedkabd/journalv</h5>
     </div>
+    <!-- title end -->
     <!-- tips -->
     <div class="item tips">
       <h3>How to search:</h3>
@@ -33,9 +35,11 @@
     <!-- tips end -->
     <!-- items -->
     <div class="items">
-      <div v-for="item in store.menuItems">
-        <AppMenuItem :title="item.title" :options="item.options"></AppMenuItem>
-      </div>
+      <AppMenuItem
+        v-for="item in store.menuItems"
+        :title="item.title"
+        :options="item.options"
+      ></AppMenuItem>
     </div>
     <!-- items end -->
   </div>

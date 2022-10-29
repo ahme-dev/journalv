@@ -11,7 +11,7 @@
     <h3>{{ props.title }}</h3>
     <!-- left -->
     <div class="options">
-      <!-- single option -->
+      <!-- each option -->
       <div
         class="option"
         v-for="option in props.options"
@@ -19,7 +19,7 @@
       >
         {{ option.option }}
       </div>
-      <!-- end single option -->
+      <!-- each option -->
     </div>
   </div>
 </template>
