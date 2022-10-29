@@ -4,9 +4,9 @@
     "output": "dist"
   },
   "nsis": {
-    "oneClick": false,
+    "oneClick": true,
     "perMachine": false,
-    "allowToChangeInstallationDirectory": true,
+    "allowToChangeInstallationDirectory": false,
     "shortcutName": "JournalV"
   },
   "win": {
