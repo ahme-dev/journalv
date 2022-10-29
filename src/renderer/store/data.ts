@@ -36,6 +36,20 @@ let data: Entry[] = [
   },
 ];
 
+// DATA functions
+
+// call preload function
+// to export data to file
+export const exportData = () => {
+  window.backend.writeJournal(data);
+}
+
+// call preload function
+// to import data from file
+export const importData = () => {
+  data = window.backend.readJournal()
+}
+
 // CRUD interface high-order functions for the data
 
 export function createEntry(type: "day" | "dream", date: string): number {

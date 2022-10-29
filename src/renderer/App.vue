@@ -17,10 +17,15 @@
 
   const store = useMainStore();
 
+  // on app load
   onMounted(() => {
+    // import data from file
+    store.importData();
+
     // first time search to show default result
-    store.changeStyle("orange");
     store.updateShownEntries("");
+    // set theme
+    store.changeStyle("orange");
   });
 </script>
 

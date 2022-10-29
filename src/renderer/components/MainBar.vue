@@ -20,6 +20,9 @@
 
   // on the button being clicked
   const getClick = () => {
+    // save data to file
+    store.exportData();
+
     switch (store.uiMode) {
       case "search":
         return (store.uiMode = "menu");

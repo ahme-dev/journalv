@@ -7,6 +7,8 @@ import {
   readEntry,
   updateEntry,
   deleteEntry,
+  exportData,
+  importData,
 } from "./data";
 
 export const useMainStore = defineStore("main", () => {
@@ -159,5 +161,10 @@ export const useMainStore = defineStore("main", () => {
     openEditorNew,
 
     changeStyle,
+
+    // let import/export functions of data.ts
+    // be available in the store
+    importData,
+    exportData,
   };
 });
