@@ -1,11 +1,11 @@
 import * as Electron from 'electron';
-import { Entry } from '../store/data';
+import { AppData } from '../store/data';
 
 // should match main/preload.ts for typescript support in renderer
 
 export default interface Preload {
-  writeJournal: (journalObject: Entry[]) => void;
-  readJournal: () => Entry[];
+  writeData: (appObject: AppData) => void;
+  readData: () => AppData;
 }
 
 // put in window object

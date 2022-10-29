@@ -3,12 +3,16 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import {
   Entry,
+  Themes,
   createEntry,
   readEntry,
   updateEntry,
   deleteEntry,
   exportData,
   importData,
+  themes,
+  getTheme,
+  setTheme,
 } from "./data";
 
 export const useMainStore = defineStore("main", () => {
@@ -94,7 +98,8 @@ export const useMainStore = defineStore("main", () => {
     shownEntries.value = filteredEntries;
   };
 
-  // specific to commands
+  // items in the menu 
+  // mostly commands
   let menuItems = [
     {
       title: "Add entry:",
@@ -106,9 +111,9 @@ export const useMainStore = defineStore("main", () => {
     {
       title: "Change theme:",
       options: [
-        { option: "Emerald", func: () => changeStyle("emerald") },
-        { option: "cyan", func: () => changeStyle("cyan") },
-        { option: "orange", func: () => changeStyle("orange") },
+        { option: "Emerald", func: () => changeTheme("emerald") },
+        { option: "cyan", func: () => changeTheme("cyan") },
+        { option: "orange", func: () => changeTheme("orange") },
       ],
     },
   ];
@@ -137,14 +142,13 @@ export const useMainStore = defineStore("main", () => {
     uiMode.value = "edit";
   };
 
-  // style change
-  const changeStyle = (style: 'cyan' | 'orange' | 'emerald') => {
-    const styles = {
-      cyan: '#44bbcc',
-      orange: '#ee8844',
-      emerald: '#22bb66'
-    }
-    document.documentElement.style.setProperty('--accent', styles[style])
+  // theme functions 
+  const loadTheme = () => {
+    document.documentElement.style.setProperty('--accent', themes[getTheme()]);
+  }
+  const changeTheme = (theme: Themes) => {
+    document.documentElement.style.setProperty('--accent', themes[theme]);
+    setTheme(theme);
   }
 
   return {
@@ -160,7 +164,9 @@ export const useMainStore = defineStore("main", () => {
     menuItems,
     openEditorNew,
 
-    changeStyle,
+    // load or change theme
+    loadTheme,
+    changeTheme,
 
     // let import/export functions of data.ts
     // be available in the store

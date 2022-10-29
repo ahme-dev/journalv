@@ -1,3 +1,11 @@
+export const themes = {
+  cyan: '#44bbcc',
+  orange: '#ee8844',
+  emerald: '#22bb66',
+}
+
+export type Themes = 'cyan' | 'orange' | 'emerald';
+
 // type for entries
 export interface Entry {
   type: "day" | "dream";
@@ -10,11 +18,11 @@ export interface Entry {
 
 // type for app data
 export interface AppData {
-  theme: string,
+  theme: Themes,
   entries: Entry[],
 }
 
-// APP data
+// app data
 
 let app: AppData = {
   theme: 'orange',
@@ -47,21 +55,31 @@ let app: AppData = {
   ]
 }
 
-// DATA functions
+// app functions
+
+// theme arrows
+export const setTheme = (colour: Themes) => {
+  app.theme = colour;
+  console.log("theme changed to", app.theme)
+}
+export const getTheme = () => {
+  console.log("theme gotten", app.theme)
+  return app.theme;
+}
 
 // call preload function
 // to export data to file
 export const exportData = () => {
-  window.backend.writeJournal(app.entries);
+  window.backend.writeData(app);
 }
 
 // call preload function
 // to import data from file
 export const importData = () => {
-  app.entries = window.backend.readJournal()
+  app = window.backend.readData()
 }
 
-// CRUD interface high-order functions for the data
+// CRUD interface high-order functions for the entries
 
 export function createEntry(type: "day" | "dream", date: string): number {
   // create an entry type from parameters
