@@ -8,7 +8,7 @@ function createWindow() {
     title: "JournalV",
     webPreferences: {
       preload: join(__dirname, "preload.js"),
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: true,
     },
   });
