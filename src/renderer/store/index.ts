@@ -3,16 +3,16 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import {
   Entry,
-  Themes,
+  Accents,
   createEntry,
   readEntry,
   updateEntry,
   deleteEntry,
   exportData,
   importData,
-  themes,
-  getTheme,
-  setTheme,
+  accents,
+  getAccent,
+  setAccent,
 } from "./data";
 
 export const useMainStore = defineStore("main", () => {
@@ -71,20 +71,22 @@ export const useMainStore = defineStore("main", () => {
       for (const word of wordsCleaned) {
         switch (word[0]) {
           // check for type of entry
-          case ':':
-            if (!entry.type.toLowerCase().includes(word.slice(1))) return false
+          case ":":
+            if (!entry.type.toLowerCase().includes(word.slice(1))) return false;
             break;
           // check for tags of entry
-          case '#':
-            if (!entry.tags.toString().toLowerCase().includes(word.slice(1))) return false
+          case "#":
+            if (!entry.tags.toString().toLowerCase().includes(word.slice(1)))
+              return false;
             break;
           // check for date of entry
-          case '>':
-            if (!entry.date.toLowerCase().includes(word.slice(1))) return false
+          case ">":
+            if (!entry.date.toLowerCase().includes(word.slice(1))) return false;
             break;
           // check entry title
           default:
-            if (!entry.title.toLowerCase().includes(word.slice(1))) return false
+            if (!entry.title.toLowerCase().includes(word.slice(1)))
+              return false;
             break;
         }
       }
@@ -98,7 +100,7 @@ export const useMainStore = defineStore("main", () => {
     shownEntries.value = filteredEntries;
   };
 
-  // items in the menu 
+  // items in the menu
   // mostly commands
   let menuItems = [
     {
@@ -109,15 +111,14 @@ export const useMainStore = defineStore("main", () => {
       ],
     },
     {
-      title: "Change theme:",
+      title: "Change accent colour:",
       options: [
-        { option: "Emerald", func: () => changeTheme("emerald") },
-        { option: "cyan", func: () => changeTheme("cyan") },
-        { option: "orange", func: () => changeTheme("orange") },
+        { option: "Emerald", func: () => changeAccent("emerald") },
+        { option: "Cyan", func: () => changeAccent("cyan") },
+        { option: "Orange", func: () => changeAccent("orange") },
       ],
     },
   ];
-
 
   const openEditorNew = (type: "day" | "dream") => {
     // set date to today
@@ -130,7 +131,10 @@ export const useMainStore = defineStore("main", () => {
 
     if (foundEntries[0]) {
       // if entry was found set editor to entry
-      editorObj.value = { ...foundEntries[0], tags: foundEntries[0].tags.join(" ") };
+      editorObj.value = {
+        ...foundEntries[0],
+        tags: foundEntries[0].tags.join(" "),
+      };
     } else {
       // otherwise create a new entry, read it, and open it
       let id = createEntry(type, date);
@@ -142,14 +146,18 @@ export const useMainStore = defineStore("main", () => {
     uiMode.value = "edit";
   };
 
-  // theme functions 
-  const loadTheme = () => {
-    document.documentElement.style.setProperty('--accent', themes[getTheme()]);
-  }
-  const changeTheme = (theme: Themes) => {
-    document.documentElement.style.setProperty('--accent', themes[theme]);
-    setTheme(theme);
-  }
+  // accent colour functions
+
+  const loadAccent = () => {
+    document.documentElement.style.setProperty(
+      "--accent",
+      accents[getAccent()]
+    );
+  };
+  const changeAccent = (theme: Accents) => {
+    document.documentElement.style.setProperty("--accent", accents[theme]);
+    setAccent(theme);
+  };
 
   return {
     uiMode,
@@ -164,9 +172,9 @@ export const useMainStore = defineStore("main", () => {
     menuItems,
     openEditorNew,
 
-    // load or change theme
-    loadTheme,
-    changeTheme,
+    // load or change accent colour
+    loadAccent,
+    changeAccent,
 
     // let import/export functions of data.ts
     // be available in the store

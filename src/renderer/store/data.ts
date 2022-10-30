@@ -1,10 +1,10 @@
-export const themes = {
+export const accents = {
   cyan: '#44bbcc',
   orange: '#ee8844',
   emerald: '#22bb66',
 }
 
-export type Themes = 'cyan' | 'orange' | 'emerald';
+export type Accents = 'cyan' | 'orange' | 'emerald';
 
 // type for entries
 export interface Entry {
@@ -18,14 +18,14 @@ export interface Entry {
 
 // type for app data
 export interface AppData {
-  theme: Themes,
+  accent: Accents,
   entries: Entry[],
 }
 
 // app data
 
 let app: AppData = {
-  theme: 'orange',
+  accent: 'orange',
   // temp dummy entries
   entries: [
     {
@@ -57,14 +57,12 @@ let app: AppData = {
 
 // app functions
 
-// theme arrows
-export const setTheme = (colour: Themes) => {
-  app.theme = colour;
-  console.log("theme changed to", app.theme)
+// accent colour arrows
+export const setAccent = (colour: Accents) => {
+  app.accent = colour;
 }
-export const getTheme = () => {
-  console.log("theme gotten", app.theme)
-  return app.theme;
+export const getAccent = () => {
+  return app.accent;
 }
 
 // call preload function

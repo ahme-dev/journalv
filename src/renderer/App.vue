@@ -23,8 +23,8 @@
     store.importData();
     // first time search to show default result
     store.updateShownEntries("");
-    // load selected theme
-    store.loadTheme();
+    // load selected accent colour
+    store.loadAccent();
   });
 </script>
 
