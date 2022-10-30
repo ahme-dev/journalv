@@ -104,10 +104,10 @@ export const useMainStore = defineStore("main", () => {
   // mostly commands
   let menuItems = [
     {
-      title: "Add entry:",
+      title: "Add a new entry:",
       options: [
-        { option: "New day", func: () => openEditorNew("day") },
-        { option: "New dream", func: () => openEditorNew("dream") },
+        { option: "Day", func: () => openEditorNew("day") },
+        { option: "Dream", func: () => openEditorNew("dream") },
       ],
     },
     {
@@ -154,9 +154,9 @@ export const useMainStore = defineStore("main", () => {
       accents[getAccent()]
     );
   };
-  const changeAccent = (theme: Accents) => {
-    document.documentElement.style.setProperty("--accent", accents[theme]);
-    setAccent(theme);
+  const changeAccent = (accent: Accents) => {
+    document.documentElement.style.setProperty("--accent", accents[accent]);
+    setAccent(accent);
   };
 
   return {
