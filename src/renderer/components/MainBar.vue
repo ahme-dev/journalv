@@ -3,7 +3,7 @@
     <button @click="getClick()" :class="getIcon()"></button>
     <input
       @input="store.updateShownEntries(searchTerm)"
-      @keyup.enter="store.openEditor(1)"
+      @keyup.enter="store.openEditor(0)"
       v-model="searchTerm"
       :placeholder="getText()"
       :disabled="!(store.uiMode == 'search')"
