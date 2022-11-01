@@ -7,8 +7,8 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "journalv",
-    "version": "0.1.0"
+    "productName": "JournalV",
+    "version": "0.2.0"
   },
   "tauri": {
     "allowlist": {
@@ -56,10 +56,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 700,
         "resizable": true,
-        "title": "journalv",
-        "width": 800
+        "title": "JournalV",
+        "width": 900
       }
     ]
   }
