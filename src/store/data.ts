@@ -65,12 +65,9 @@ export const getAccent = () => {
   return app.accent;
 };
 
-// call preload function
-// to export data to file
-export const exportData = () => {};
+// import and export data
 
-// call preload function
-// to import data from file
+export const exportData = () => {};
 export const importData = () => {};
 
 // CRUD interface high-order functions for the entries
