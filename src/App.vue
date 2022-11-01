@@ -19,8 +19,6 @@
 
   // on app load
   onMounted(() => {
-    // import data from file
-    store.importData();
     // first time search to show default result
     store.updateShownEntries("");
     // load selected accent colour

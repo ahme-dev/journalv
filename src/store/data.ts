@@ -1,10 +1,10 @@
 export const accents = {
-  cyan: '#44bbcc',
-  orange: '#ee8844',
-  emerald: '#22bb66',
-}
+  cyan: "#44bbcc",
+  orange: "#ee8844",
+  emerald: "#22bb66",
+};
 
-export type Accents = 'cyan' | 'orange' | 'emerald';
+export type Accents = "cyan" | "orange" | "emerald";
 
 // type for entries
 export interface Entry {
@@ -18,14 +18,14 @@ export interface Entry {
 
 // type for app data
 export interface AppData {
-  accent: Accents,
-  entries: Entry[],
+  accent: Accents;
+  entries: Entry[];
 }
 
 // app data
 
 let app: AppData = {
-  accent: 'orange',
+  accent: "orange",
   // temp dummy entries
   entries: [
     {
@@ -52,30 +52,26 @@ let app: AppData = {
       date: "28 Oct 2022",
       id: 223,
     },
-  ]
-}
+  ],
+};
 
 // app functions
 
 // accent colour arrows
 export const setAccent = (colour: Accents) => {
   app.accent = colour;
-}
+};
 export const getAccent = () => {
   return app.accent;
-}
+};
 
 // call preload function
 // to export data to file
-export const exportData = () => {
-  window.backend.writeData(app);
-}
+export const exportData = () => {};
 
 // call preload function
 // to import data from file
-export const importData = () => {
-  app = window.backend.readData()
-}
+export const importData = () => {};
 
 // CRUD interface high-order functions for the entries
 
@@ -116,4 +112,4 @@ export function updateEntry(
   });
 }
 
-export function deleteEntry(): void { }
+export function deleteEntry(): void {}
