@@ -34,7 +34,7 @@
     --fg: #eee;
     --main: rgba(70, 70, 70, 0.5);
     /* will be modified by a function */
-    --accent: "#ee8844";
+    --accent: "#22bb66";
   }
 
   *,

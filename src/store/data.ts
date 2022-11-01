@@ -25,7 +25,7 @@ export interface AppData {
 // app data
 
 let app: AppData = {
-  accent: "orange",
+  accent: "emerald",
   // temp dummy entries
   entries: [
     {

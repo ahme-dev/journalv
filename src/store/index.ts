@@ -149,7 +149,7 @@ export const useMainStore = defineStore("main", () => {
   // accent colour functions
 
   const loadAccent = () => {
-    let accent = accents[getAccent()] ? accents[getAccent()] : accents.orange;
+    let accent = accents[getAccent()];
     document.documentElement.style.setProperty("--accent", accent);
   };
   const changeAccent = (accent: Accents) => {
