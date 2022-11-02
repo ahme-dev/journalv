@@ -13,10 +13,9 @@
   "tauri": {
     "allowlist": {
       "fs": {
-        "createDir": true,
         "writeFile": true,
         "readFile": true,
-        "scope": ["$CONFIG/*", "$APP/*"]
+        "scope": ["$CONFIG/*"]
       }
     },
     "bundle": {
