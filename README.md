@@ -14,6 +14,12 @@ App for journaling your days and dreams, being made with ~~Electron~~ Tauri and 
 
 <hr />
 
+### Install
+
+- Grab a binary from the [releases page](https://github.com/ahmedkabd/journalv/releases) (builds are automated, and not tested currently).
+- Clone repo, go into, and run ```npm run tauri build```. Finished binaries will be in the target directory.
+<hr />
+
 ### Preview
 
 - General interface:
