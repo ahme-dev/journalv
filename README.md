@@ -2,7 +2,7 @@
 
 App for journaling your days and dreams, being made with ~~Electron~~ Tauri and Vue.
 
-![app icon](static/jv-icon-sm.png)
+![app icon](assets/jv-icon-sm.png)
 
 <hr />
 
@@ -26,12 +26,12 @@ There are two ways to get the app:
 
 - Opening an entry and editing it:
 
-  ![editor preview](static/jv-open.gif)
+  ![editor preview](assets/jv-open.gif)
 
 - Searching through entries, by tags, date, and type:
 
-  ![search preview](static/jv-search.gif)
+  ![search preview](assets/jv-search.gif)
 
 - Going to app menu, changing accent, and creating new entries:
 
-  ![menu preview](static/jv-menu.gif)
+  ![menu preview](assets/jv-menu.gif)
