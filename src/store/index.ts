@@ -31,7 +31,7 @@ export const useMainStore = defineStore("main", () => {
 
   const closeEditor = () => {
     // update the entry in data.ts
-    let { id, title, content, tags } = editorObj.value;
+    const { id, title, content, tags } = editorObj.value;
     updateEntry(id, title, content, tags.split(" "));
 
     // update shownEntries using empty search
@@ -45,7 +45,7 @@ export const useMainStore = defineStore("main", () => {
     if (!shownEntries.value) return;
 
     // read entry from data.ts
-    let selectedEntry = shownEntries.value[order];
+    const selectedEntry = shownEntries.value[order];
 
     // set editor to entry
     editorObj.value = { ...selectedEntry, tags: selectedEntry.tags.join(" ") };
@@ -102,7 +102,7 @@ export const useMainStore = defineStore("main", () => {
 
   // items in the menu
   // mostly commands
-  let menuItems = [
+  const menuItems = [
     {
       title: "Add a new entry:",
       options: [
@@ -122,10 +122,10 @@ export const useMainStore = defineStore("main", () => {
 
   const openEditorNew = (type: "day" | "dream") => {
     // set date to today
-    let date = moment().format("D MMM YYYY");
+    const date = moment().format("D MMM YYYY");
 
     // see if today has an entry
-    let foundEntries = readEntry(
+    const foundEntries = readEntry(
       (entry) => entry.type === type && entry.date === date
     );
 
@@ -137,8 +137,8 @@ export const useMainStore = defineStore("main", () => {
       };
     } else {
       // otherwise create a new entry, read it, and open it
-      let id = createEntry(type, date);
-      let entries = readEntry((entry) => entry.id == id);
+      const id = createEntry(type, date);
+      const entries = readEntry((entry) => entry.id == id);
       editorObj.value = { ...entries[0], tags: entries[0].tags.join(" ") };
     }
 
@@ -149,7 +149,7 @@ export const useMainStore = defineStore("main", () => {
   // accent colour functions
 
   const loadAccent = () => {
-    let accent = accents[getAccent()];
+    const accent = accents[getAccent()];
     document.documentElement.style.setProperty("--accent", accent);
   };
   const changeAccent = (accent: Accents) => {

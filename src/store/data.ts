@@ -80,7 +80,7 @@ export const exportData = async () =>
 
 export const importData = async () => {
   // read file from config dir
-  let fileStr = await readTextFile("journalv.data", { dir: Dir.Config });
+  const fileStr = await readTextFile("journalv.data", { dir: Dir.Config });
   // set data to read file
   app = JSON.parse(fileStr);
 };
@@ -89,7 +89,7 @@ export const importData = async () => {
 
 export function createEntry(type: "day" | "dream", date: string): number {
   // create an entry type from parameters
-  let newEntry: Entry = {
+  const newEntry: Entry = {
     id: app.entries[app.entries.length - 1].id + 1,
     title: "",
     content: "",
