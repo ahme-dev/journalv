@@ -16,10 +16,14 @@
   import { ref } from "vue";
 
   import { useMainStore } from "../store";
+  import { exportData } from "../store/data";
+
   const store = useMainStore();
 
   // on the button being clicked
   const getClick = () => {
+    exportData();
+
     switch (store.uiMode) {
       case "search":
         return (store.uiMode = "menu");

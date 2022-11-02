@@ -13,10 +13,10 @@
   "tauri": {
     "allowlist": {
       "fs": {
-        "scope": ["$CONFIG"],
-        "all": true,
+        "createDir": true,
+        "writeFile": true,
         "readFile": true,
-        "writeFile": true
+        "scope": ["$CONFIG/*", "$APP/*"]
       }
     },
     "bundle": {
@@ -34,7 +34,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "systems.ahmed.journalv",
+      "identifier": "journalv",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
