@@ -2,7 +2,7 @@
 
 App for journaling your days and dreams, being made with ~~Electron~~ Tauri and Vue.
 
-![JournalV Icon](app-icon-small.png)
+![app icon](static/jv-icon-sm.png)
 
 <hr />
 
@@ -19,13 +19,19 @@ App for journaling your days and dreams, being made with ~~Electron~~ Tauri and 
 There are two ways to get the app:
 
 - Grab a binary from the [releases page](https://github.com/ahmedkabd/journalv/releases) (builds are automated, and not tested currently).
-- Clone repo, go into, and run ```npm run tauri build```. Finished binaries will be in the target directory.
+- Clone repo, go into, and run `npm run tauri build`. Finished binaries will be in the target directory.
 <hr />
 
 ### Preview
 
-- General interface:
+- Opening an entry and editing it:
 
-  ![A look at JournalV](app-preview.gif)
+  ![editor preview](static/jv-open.gif)
 
-<hr />
+- Searching through entries, by tags, date, and type:
+
+  ![search preview](static/jv-search.gif)
+
+- Going to app menu, changing accent, and creating new entries:
+
+  ![menu preview](static/jv-menu.gif)
