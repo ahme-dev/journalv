@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "JournalV",
-    "version": "0.2.0"
+    "version": "0.2.1"
   },
   "tauri": {
     "allowlist": {
@@ -20,7 +20,7 @@
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
+      "category": "Lifestyle",
       "copyright": "",
       "deb": {
         "depends": []
@@ -60,7 +60,7 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 700,
+        "height": 650,
         "resizable": true,
         "title": "JournalV",
         "width": 900
