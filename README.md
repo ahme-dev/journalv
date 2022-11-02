@@ -1,3 +1,9 @@
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ahmedkabd/journalv?color=red&include_prereleases&style=flat-square)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/ahmedkabd/journalv/@tauri-apps/api?label=tauri&style=flat-square&color=red)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ahmedkabd/journalv/Release?style=flat-square)
+![GitHub all releases](https://img.shields.io/github/downloads/ahmedkabd/journalv/total?color=blue&style=flat-square)
+
+
 ### JournalV
 
 App for journaling your days and dreams, being made with ~~Electron~~ Tauri and Vue.
