@@ -1,4 +1,9 @@
-import { Dir, writeFile } from "@tauri-apps/api/fs";
+import {
+  Dir,
+  readTextFile,
+  writeFile,
+  writeTextFile,
+} from "@tauri-apps/api/fs";
 
 export const accents = {
   cyan: "#44bbcc",
@@ -69,11 +74,16 @@ export const getAccent = () => {
 
 // import and export data
 
-export const exportData = async () => {
-  // write to .config/journalv/jv.data
+export const exportData = async () =>
+  // write  data to file to config dir
   await writeFile("journalv.data", JSON.stringify(app), { dir: Dir.Config });
+
+export const importData = async () => {
+  // read file from config dir
+  let fileStr = await readTextFile("journalv.data", { dir: Dir.Config });
+  // set data to read file
+  app = JSON.parse(fileStr);
 };
-export const importData = () => {};
 
 // CRUD interface high-order functions for the entries
 

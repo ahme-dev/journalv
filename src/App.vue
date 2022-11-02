@@ -18,7 +18,9 @@
   const store = useMainStore();
 
   // on app load
-  onMounted(() => {
+  onMounted(async () => {
+    // import app data
+    await store.importData();
     // first time search to show default result
     store.updateShownEntries("");
     // load selected accent colour
