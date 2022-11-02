@@ -10,4 +10,4 @@ App for journaling your days and dreams, being made with ~~Electron~~ Tauri and 
 
 Interface Preview:
 
-![A look at JournalV](journalv.gif)
+![A look at JournalV](app-preview.gif)
