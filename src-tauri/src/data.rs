@@ -1,6 +1,5 @@
 use std::{
     fs,
-    io::{Read, Write},
     path,
 };
 
