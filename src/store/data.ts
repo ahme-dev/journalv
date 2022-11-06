@@ -1,5 +1,4 @@
-import { Dir, readTextFile, writeFile } from "@tauri-apps/api/fs";
-import { createCipheriv, createDecipheriv, randomBytes } from "crypto";
+import { invoke } from "@tauri-apps/api/tauri";
 
 export const accents = {
   cyan: "#44bbcc",
@@ -69,29 +68,14 @@ export const getAccent = () => {
   return app.accent;
 };
 
-// import and export data
+// import and export data (invoking rust)
 
-export const exportData = async () =>
-  // encrypt and write data to file in config dir
-  await writeFile("journalv.data", encrypt(JSON.stringify(app)), {
-    dir: Dir.Config,
-  });
+export const exportData = async () => {
+  await invoke("write_data", { data: JSON.stringify(app) });
+};
 
 export const importData = async () => {
-  // read file from config dir
-  const fileStr = await readTextFile("journalv.data", { dir: Dir.Config });
-  // decrypt and set data to read file
-  app = JSON.parse(decrypt(fileStr));
-};
-
-// cryptography
-
-const encrypt = (text: string): string => {
-  return text;
-};
-
-const decrypt = (text: string): string => {
-  return text;
+  await invoke("read_data").then((res) => (app = JSON.parse(res as string)));
 };
 
 // CRUD interface high-order functions for the entries
