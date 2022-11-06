@@ -1,23 +1,27 @@
-use std::fs;
+use std::{
+    fs,
+    io::{Read, Write},
+    path,
+};
+
+fn get_path() -> path::PathBuf {
+    tauri::api::path::config_dir()
+        .expect("could not get config dir")
+        .join("journalv.data")
+}
 
 #[tauri::command]
 pub fn write_data(data: String) {
-    // get file
-    let file = tauri::api::path::config_dir()
-        .expect("could not get config dir")
-        .join("journalv.data");
+    let path = get_path();
 
-    // write data passed into file
-    fs::write(file, data).expect("could not write file")
+    // write the passed data into file using path
+    fs::write(path, data).expect("could not write file")
 }
 
 #[tauri::command]
 pub fn read_data() -> String {
-    // get file
-    let file = tauri::api::path::config_dir()
-        .expect("could not get config dir")
-        .join("journalv.data");
+    let path = get_path();
 
-    // read file into a string and return
-    fs::read_to_string(file).expect("could not read file")
+    // read file, using path, into a string and return
+    fs::read_to_string(path).expect("could not read file")
 }
