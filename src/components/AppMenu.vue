@@ -10,7 +10,7 @@
     <!-- title -->
     <div class="title">
       <h2>JournalV</h2>
-      <h5>github.com/ahmedkabd/journalv</h5>
+      <h5>github.com/ahmedkapro/journalv</h5>
     </div>
     <!-- title end -->
     <!-- tips -->
