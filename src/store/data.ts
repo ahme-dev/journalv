@@ -51,6 +51,7 @@ export const exportData = async () => {
 
 export const importData = async () => {
 	await invoke("read_data").then((res) => {
+		console.log("got", res);
 		// don't do anything if no data was imported
 		if (res == "") return;
 
@@ -61,9 +62,15 @@ export const importData = async () => {
 // CRUD interface high-order functions for the entries
 
 export function createEntry(type: "day" | "dream", date: string): number {
+	// get last item's id
+	let lastID =
+		JSON.stringify(app.entries) == "[]"
+			? 0
+			: app.entries[app.entries.length - 1].id;
+
 	// create an entry type from parameters
 	const newEntry: Entry = {
-		id: app.entries[app.entries.length - 1].id + 1,
+		id: lastID + 1,
 		title: "",
 		content: "",
 		type: type,
