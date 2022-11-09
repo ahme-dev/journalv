@@ -1,14 +1,19 @@
 <template>
 	<div class="MainBar">
-		<button @click="getClick()" :class="getIcon()"></button>
+		<button @click="mainClicked()" :class="mainIcon()"></button>
 		<input
 			@input="store.updateShownEntries(searchTerm)"
 			@keyup.enter="store.openEditor(0)"
 			v-model="searchTerm"
-			:placeholder="getText()"
+			:placeholder="mainText()"
 			:disabled="!(store.uiMode == 'search')"
 			type="text"
 		/>
+		<button
+			@click="saveClicked()"
+			class="fa-solid"
+			:class="store.saved ? 'fa-check' : 'fa-save'"
+		></button>
 	</div>
 </template>
 
@@ -16,26 +21,33 @@
 	import { ref } from "vue";
 
 	import { useMainStore } from "../store";
-	import { exportData } from "../store/data";
 
 	const store = useMainStore();
 
-	// on the button being clicked
-	const getClick = () => {
-		exportData();
+	const searchTerm = ref("");
 
+	const saveClicked = () => {
+		store.exportData();
+		store.saved = true;
+	};
+
+	// on the button being clicked
+	const mainClicked = () => {
 		switch (store.uiMode) {
 			case "search":
-				return (store.uiMode = "menu");
+				store.uiMode = "menu";
+				break;
 			case "edit":
-				return store.closeEditor();
+				store.closeEditor();
+				break;
 			case "menu":
-				return (store.uiMode = "search");
+				store.uiMode = "search";
+				break;
 		}
 	};
 
 	// icon based on ui mode
-	const getIcon = () => {
+	const mainIcon = () => {
 		switch (store.uiMode) {
 			case "search":
 				return "fa-solid fa-bars";
@@ -47,7 +59,7 @@
 	};
 
 	// text based on ui mode
-	const getText = () => {
+	const mainText = () => {
 		switch (store.uiMode) {
 			case "search":
 				return "start typing";
@@ -57,14 +69,12 @@
 				return "you are in the menu";
 		}
 	};
-
-	const searchTerm = ref("");
 </script>
 
 <style scoped>
 	.MainBar {
 		display: grid;
-		grid-template-columns: 1fr 9fr;
+		grid-template-columns: 1fr 8fr 1fr;
 	}
 	.MainBar > * {
 		height: 100%;
@@ -75,7 +85,6 @@
 		padding: 1rem 2rem;
 		font-weight: bold;
 
-		border-right: solid 1rem var(--accent);
 		background-color: var(--main);
 	}
 	input:focus {
@@ -83,8 +92,8 @@
 	}
 	button {
 		cursor: pointer;
-		font-size: 1.2rem;
-		padding: 1rem;
+		font-size: 1.1rem;
+		font-weight: bold;
 
 		color: var(--bg);
 		background-color: var(--accent);

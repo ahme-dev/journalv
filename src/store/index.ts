@@ -29,6 +29,8 @@ export const useMainStore = defineStore("main", () => {
 		id: 1,
 	});
 
+	let saved = ref(true);
+
 	const closeEditor = () => {
 		// update the entry in data.ts
 		const { id, title, content, tags } = editorObj.value;
@@ -140,6 +142,9 @@ export const useMainStore = defineStore("main", () => {
 			const id = createEntry(type, date);
 			const entries = readEntry((entry) => entry.id == id);
 			editorObj.value = { ...entries[0], tags: entries[0].tags.join(" ") };
+
+			// change stated to unsaved
+			saved.value = false;
 		}
 
 		// switch ui
@@ -155,10 +160,13 @@ export const useMainStore = defineStore("main", () => {
 	const changeAccent = (accent: Accents) => {
 		document.documentElement.style.setProperty("--accent", accents[accent]);
 		setAccent(accent);
+		// change stated to unsaved
+		saved.value = false;
 	};
 
 	return {
 		uiMode,
+		saved,
 
 		editorObj,
 		closeEditor,

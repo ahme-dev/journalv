@@ -3,6 +3,7 @@
 		<div class="editSection">
 			<input
 				v-model.lazy="store.editorObj.title"
+				@input="store.saved = false"
 				class="editTitle"
 				type="text"
 				placeholder="Entry title"
@@ -16,6 +17,7 @@
 		<div class="editSection">
 			<textarea
 				v-model.lazy="store.editorObj.content"
+				@input="store.saved = false"
 				class="editContent"
 				id=""
 				placeholder="Type whatever you whant"
@@ -24,6 +26,7 @@
 		<div class="editSection">
 			<input
 				v-model.lazy="store.editorObj.tags"
+				@input="store.saved = false"
 				class="editTags"
 				type="text"
 				placeholder="Tags (space separated)"
