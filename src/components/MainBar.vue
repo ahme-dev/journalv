@@ -102,6 +102,7 @@
 		font-weight: bold;
 		padding: 1rem;
 		border-radius: 50%;
+		cursor: pointer;
 		transition: 0.2s ease-out;
 	}
 </style>
