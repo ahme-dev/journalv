@@ -52,8 +52,8 @@
 	}
 
 	*::selection {
-		background-color: var(--fg);
-		color: var(--accent);
+		background-color: var(--accent);
+		color: var(--bg);
 		padding: 1rem;
 	}
 
