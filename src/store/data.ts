@@ -29,32 +29,7 @@ export interface AppData {
 let app: AppData = {
 	accent: "emerald",
 	// temp dummy entries
-	entries: [
-		{
-			type: "day",
-			title: "Performed the play",
-			tags: ["scared", "proud"],
-			content: "",
-			date: "19 Sep 2022",
-			id: 221,
-		},
-		{
-			type: "day",
-			title: "Was congratulated for my acting",
-			tags: ["happy", "proud"],
-			date: "20 Sep 2022",
-			content: "",
-			id: 222,
-		},
-		{
-			type: "dream",
-			title: "Dreamt of climbing a mountain",
-			tags: ["scared", "excited"],
-			content: "",
-			date: "28 Oct 2022",
-			id: 223,
-		},
-	],
+	entries: [],
 };
 
 // app functions
@@ -75,7 +50,12 @@ export const exportData = async () => {
 };
 
 export const importData = async () => {
-	await invoke("read_data").then((res) => (app = JSON.parse(res as string)));
+	await invoke("read_data").then((res) => {
+		// don't do anything if no data was imported
+		if (res == "") return;
+
+		app = JSON.parse(res as string);
+	});
 };
 
 // CRUD interface high-order functions for the entries
