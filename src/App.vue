@@ -29,8 +29,6 @@
 </script>
 
 <style>
-	@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Tajawal&display=swap");
-
 	:root {
 		--bg: #111;
 		--fg: #eee;
@@ -76,7 +74,7 @@
 	}
 
 	#app {
-		font-family: Comfortaa, Tahoma, sans-serif;
+		font-family: sans-serif;
 
 		max-width: 1100px;
 		margin: auto;
