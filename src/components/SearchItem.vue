@@ -43,43 +43,57 @@
 
 <style scoped>
 	.SearchItem {
-		flex: 0 0 3rem;
-
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
-		align-items: stretch;
+		align-items: center;
+		gap: 1rem;
 
-		background-color: var(--main);
-
-		box-shadow: 1px 1px 2px var(--bg);
+		padding: 0.7rem 1rem;
+		border-left: 0.5rem solid var(--main);
 
 		border-top-right-radius: 1rem;
 		border-bottom-right-radius: 1rem;
+
+		background-color: var(--main);
+		box-shadow: 1px 1px 2px var(--bg);
 
 		transition: 0.2s ease-out;
 	}
 
 	.highlight,
 	.SearchItem:hover {
-		background-color: var(--accent);
-		color: var(--bg);
+		/* background-color: var(--accent); */
+		/* color: var(--bg); */
 		cursor: pointer;
+		border-left: 0.5rem solid var(--accent);
 	}
+
+	.highlight .icon,
+	.SearchItem:hover .icon {
+		color: var(--bg);
+		background-color: var(--accent);
+	}
+
+	/* left */
 
 	.left {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-wrap: wrap;
 		gap: 1rem;
-		height: 100%;
 	}
 
 	.left .icon {
-		height: 100%;
-		padding: 1rem;
-		background-color: var(--accent);
-		color: var(--bg);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0.8rem;
+		border-radius: 50%;
 	}
+
+	/* right */
 
 	.right {
 		display: flex;
@@ -88,15 +102,7 @@
 		align-items: flex-end;
 		justify-content: center;
 
-		height: 100%;
-		padding: 0.5rem 1rem;
-
 		border-top-right-radius: 1rem;
 		border-bottom-right-radius: 1rem;
-	}
-
-	.command {
-		color: var(--bg);
-		background-color: var(--accent);
 	}
 </style>

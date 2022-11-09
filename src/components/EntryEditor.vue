@@ -104,7 +104,7 @@
 		place-items: center;
 
 		padding: 0.8rem;
-		border-radius: 1rem;
+		border-radius: 0.8rem;
 		font-weight: bold;
 
 		transition: 0.2s ease-out;
