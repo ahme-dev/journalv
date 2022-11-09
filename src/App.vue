@@ -32,9 +32,9 @@
 	@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Tajawal&display=swap");
 
 	:root {
-		--bg: #222;
+		--bg: #111;
 		--fg: #eee;
-		--main: rgba(70, 70, 70, 0.5);
+		--main: rgba(70, 70, 70, 0.2);
 		/* will be modified by a function */
 		--accent: "#22bb66";
 	}
