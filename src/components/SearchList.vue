@@ -1,6 +1,11 @@
 <template>
 	<div class="SearchList">
+		<div class="empty" v-if="JSON.stringify(store.shownEntries) == '[]'">
+			No entries found
+		</div>
+
 		<SearchItem
+			v-else
 			v-for="(entry, index) in store.shownEntries"
 			:="entry"
 			:order="index"
@@ -12,7 +17,11 @@
 	import SearchItem from "./SearchItem.vue";
 
 	import { useMainStore } from "../store";
+	import { computed } from "vue";
+
 	const store = useMainStore();
+
+	console.log(JSON.stringify(store.shownEntries));
 </script>
 
 <style scoped>
@@ -37,5 +46,19 @@
 	.SearchList::-webkit-scrollbar-thumb {
 		background-color: var(--accent);
 		border-top-right-radius: 1rem;
+	}
+
+	.empty {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		padding: 1.4rem;
+		border-radius: 1rem;
+
+		background-color: var(--main);
+		box-shadow: 1px 1px 2px var(--bg);
+
+		transition: 0.2s ease-out;
 	}
 </style>
