@@ -78,7 +78,7 @@
 	#app {
 		font-family: Comfortaa, Tahoma, sans-serif;
 
-		max-width: 1000px;
+		max-width: 1100px;
 		margin: auto;
 
 		display: flex;
