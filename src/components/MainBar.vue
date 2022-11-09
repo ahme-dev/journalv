@@ -74,7 +74,7 @@
 <style scoped>
 	.MainBar {
 		display: grid;
-		grid-template-columns: 1fr 8fr 1fr;
+		grid-template-columns: 1fr 9fr 1fr;
 	}
 	.MainBar > * {
 		height: 100%;
