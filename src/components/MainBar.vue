@@ -73,14 +73,11 @@
 
 <style scoped>
 	.MainBar {
-		display: grid;
-		grid-template-columns: 1fr 9fr 1fr;
-	}
-	.MainBar > * {
-		height: 100%;
-		width: 100%;
+		display: flex;
 	}
 	input {
+		flex-grow: 1;
+
 		font-size: 1.2rem;
 		padding: 1rem 2rem;
 		font-weight: bold;
@@ -91,9 +88,11 @@
 		outline: none;
 	}
 	button {
-		cursor: pointer;
 		font-size: 1.1rem;
 		font-weight: bold;
+		padding: 1rem 1.5rem;
+
+		cursor: pointer;
 
 		color: var(--bg);
 		background-color: var(--accent);

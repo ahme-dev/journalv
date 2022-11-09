@@ -3,7 +3,7 @@
 	<AppMenu v-else-if="store.uiMode == 'menu'"></AppMenu>
 	<EntryEditor v-else></EntryEditor>
 
-	<MainBar></MainBar>
+	<MainBar class="bar"></MainBar>
 </template>
 
 <script setup lang="ts">
@@ -78,19 +78,24 @@
 	#app {
 		font-family: Comfortaa, Tahoma, sans-serif;
 
-		max-width: 900px;
+		max-width: 1000px;
 		margin: auto;
 
-		display: grid;
-		grid-template-rows: 9fr 1fr;
+		display: flex;
+		flex-direction: column;
 		gap: 1rem;
-		padding: 2rem;
+		padding: 1rem;
 
 		background-color: var(--bg);
 		color: var(--fg);
 	}
 
 	#app > * {
+		flex-grow: 1;
 		background-color: var(--main);
+	}
+
+	#app > .bar {
+		flex-grow: 0;
 	}
 </style>
