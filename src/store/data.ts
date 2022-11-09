@@ -51,7 +51,6 @@ export const exportData = async () => {
 
 export const importData = async () => {
 	await invoke("read_data").then((res) => {
-		console.log("got", res);
 		// don't do anything if no data was imported
 		if (res == "") return;
 
