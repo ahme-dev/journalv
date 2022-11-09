@@ -1,8 +1,7 @@
 <template>
 	<div class="MainBar">
-		<div class="buttonbox">
+		<div class="buttonbox" @click="mainClicked()">
 			<button
-				@click="mainClicked()"
 				class="fa-solid"
 				:class="store.uiMode == 'search' ? 'fa-bars' : 'fa-chevron-down'"
 			></button>
@@ -15,9 +14,8 @@
 			:disabled="!(store.uiMode == 'search')"
 			type="text"
 		/>
-		<div class="buttonbox">
+		<div class="buttonbox" @click="saveClicked()">
 			<button
-				@click="saveClicked()"
 				class="fa-solid"
 				:class="store.saved ? 'fa-check' : 'fa-save'"
 			></button>
