@@ -10,7 +10,7 @@
 		<!-- title -->
 		<div class="title">
 			<h2>JournalV</h2>
-			<h5>github.com/ahmedkapro/journalv</h5>
+			<a href="http://github.com/ahmedkapro/journalv">source</a>
 		</div>
 		<!-- title end -->
 		<!-- tips -->
@@ -71,7 +71,9 @@
 	}
 
 	.title {
-		align-self: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
 		padding: 1rem;
 		border-bottom-left-radius: 1rem;
@@ -80,6 +82,11 @@
 		background-color: var(--accent);
 		color: var(--bg);
 		box-shadow: 1px 1px 2px var(--bg);
+	}
+
+	.title a {
+		text-decoration: none;
+		font-weight: bold;
 	}
 
 	.items {
