@@ -46,11 +46,14 @@ export const getAccent = () => {
 // import and export data (invoking rust)
 
 export const exportData = async () => {
-	await invoke("write_data", { data: JSON.stringify(app) });
+	await invoke("write_data", {
+		data: JSON.stringify(app),
+		password: "magickey",
+	});
 };
 
 export const importData = async () => {
-	await invoke("read_data").then((res) => {
+	await invoke("read_data", { password: "magickey" }).then((res) => {
 		// don't do anything if no data was imported
 		if (res == "") return;
 
