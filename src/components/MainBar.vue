@@ -1,10 +1,12 @@
 <template>
 	<div class="MainBar">
-		<button
-			@click="mainClicked()"
-			class="fa-solid"
-			:class="store.uiMode == 'search' ? 'fa-bars' : 'fa-chevron-down'"
-		></button>
+		<div class="buttonbox">
+			<button
+				@click="mainClicked()"
+				class="fa-solid"
+				:class="store.uiMode == 'search' ? 'fa-bars' : 'fa-chevron-down'"
+			></button>
+		</div>
 		<input
 			@input="store.updateShownEntries(searchTerm)"
 			@keyup.enter="store.openEditor(0)"
@@ -13,11 +15,13 @@
 			:disabled="!(store.uiMode == 'search')"
 			type="text"
 		/>
-		<button
-			@click="saveClicked()"
-			class="fa-solid"
-			:class="store.saved ? 'fa-check' : 'fa-save'"
-		></button>
+		<div class="buttonbox">
+			<button
+				@click="saveClicked()"
+				class="fa-solid"
+				:class="store.saved ? 'fa-check' : 'fa-save'"
+			></button>
+		</div>
 	</div>
 </template>
 
@@ -79,14 +83,25 @@
 	input:focus {
 		outline: none;
 	}
-	button {
-		font-size: 1.1rem;
-		font-weight: bold;
-		padding: 1.5rem 2rem;
 
-		cursor: pointer;
+	.buttonbox {
+		padding: 0.5rem 1rem;
 
 		color: var(--bg);
 		background-color: var(--accent);
+
+		cursor: pointer;
+	}
+
+	.buttonbox:hover > button {
+		background-color: var(--main);
+	}
+
+	button {
+		font-size: 1.1rem;
+		font-weight: bold;
+		padding: 1rem;
+		border-radius: 50%;
+		transition: 0.2s ease-out;
 	}
 </style>
