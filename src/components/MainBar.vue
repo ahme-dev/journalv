@@ -1,6 +1,10 @@
 <template>
 	<div class="MainBar">
-		<button @click="mainClicked()" :class="mainIcon()"></button>
+		<button
+			@click="mainClicked()"
+			class="fa-solid"
+			:class="store.uiMode == 'search' ? 'fa-bars' : 'fa-chevron-down'"
+		></button>
 		<input
 			@input="store.updateShownEntries(searchTerm)"
 			@keyup.enter="store.openEditor(0)"
@@ -43,18 +47,6 @@
 			case "menu":
 				store.uiMode = "search";
 				break;
-		}
-	};
-
-	// icon based on ui mode
-	const mainIcon = () => {
-		switch (store.uiMode) {
-			case "search":
-				return "fa-solid fa-bars";
-			case "edit":
-				return "fa-solid fa-chevron-left";
-			case "menu":
-				return "fa-solid fa-chevron-down";
 		}
 	};
 
