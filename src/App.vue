@@ -1,5 +1,5 @@
 <template>
-	<div v-if="loading" class="passwordbox">
+	<div v-if="store.uiMode == 'password'" class="passwordbox">
 		<p>
 			{{ info }}
 		</p>
@@ -14,7 +14,7 @@
 
 	<SearchList v-if="store.uiMode == 'search'"></SearchList>
 	<AppMenu v-else-if="store.uiMode == 'menu'"></AppMenu>
-	<EntryEditor v-else></EntryEditor>
+	<EntryEditor v-else="store.uiMode == 'edit'"></EntryEditor>
 
 	<MainBar class="bar"></MainBar>
 </template>
@@ -32,7 +32,6 @@
 
 	const info = ref("");
 	const password = ref("");
-	const loading = ref(true);
 
 	onMounted(async () => {
 		confirmPass(true);
@@ -58,8 +57,8 @@
 		store.updateShownEntries("");
 		// load selected accent colour
 		store.loadAccent();
-		// finish loading
-		loading.value = false;
+		// switch of out of password screen
+		store.uiMode = "search";
 	};
 </script>
 
