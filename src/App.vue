@@ -50,6 +50,8 @@
 			store.loadAccent();
 			// switch of out of password screen
 			store.uiMode = "search";
+			// remove password text
+			store.passObj.password = "";
 		};
 
 		// run once

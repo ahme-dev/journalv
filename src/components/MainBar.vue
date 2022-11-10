@@ -27,14 +27,34 @@
 	import { ref } from "vue";
 
 	import { useMainStore } from "../store";
-
 	const store = useMainStore();
 
 	const searchTerm = ref("");
 
 	const saveClicked = () => {
-		store.exportData();
-		store.saved = true;
+		// set password screen up
+		store.passObj.button = "Save";
+		store.passObj.info = "Enter password to encrypt with:";
+		// show password screen
+		store.uiMode = "password";
+
+		// set function to work
+		store.passObj.checkFunc = async (first = false) => {
+			// export app data
+			let res = await store.exportData(store.passObj.password);
+
+			// if wrong password
+			if (res == "error") {
+				store.passObj.info = "Password does not match previous ones!";
+				return;
+			}
+
+			// switch of out of password screen
+			store.uiMode = "search";
+
+			// remove password text
+			store.passObj.password = "";
+		};
 	};
 
 	// on the button being clicked
