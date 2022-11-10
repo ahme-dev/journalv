@@ -1,12 +1,12 @@
 <template>
 	<div v-if="store.uiMode == 'password'" class="passwordbox">
 		<p>
-			{{ info }}
+			{{ store.passObj.info }}
 		</p>
 		<input
 			type="password"
-			@keyup.enter="confirmPass()"
-			v-model="password"
+			@keyup.enter="store.passObj.checkFunc()"
+			v-model="store.passObj.password"
 			placeholder="password"
 		/>
 		<button>Open</button>
@@ -30,36 +30,31 @@
 
 	const store = useMainStore();
 
-	const info = ref("");
-	const password = ref("");
-
 	onMounted(async () => {
-		confirmPass(true);
-	});
+		// set password checking function
+		store.passObj.checkFunc = async (first = false) => {
+			// import app data
+			let res = await store.importData(store.passObj.password);
 
-	const confirmPass = async (first = false) => {
-		// import app data
-		let res = await store.importData(password.value);
+			// if couldn't open file
+			if (res == "error") {
+				if (first) store.passObj.info = "Enter password to import data:";
+				else store.passObj.info = "Entered password was wrong!";
 
-		// if couldn't open file
-		if (res == "error") {
-			switch (first) {
-				case true:
-					info.value = "Enter password to import data:";
-					return;
-				case false:
-					info.value = "Entered password was wrong!";
-					return;
+				return;
 			}
-		}
 
-		// first time search to show default result
-		store.updateShownEntries("");
-		// load selected accent colour
-		store.loadAccent();
-		// switch of out of password screen
-		store.uiMode = "search";
-	};
+			// first time search to show default result
+			store.updateShownEntries("");
+			// load selected accent colour
+			store.loadAccent();
+			// switch of out of password screen
+			store.uiMode = "search";
+		};
+
+		// run once
+		store.passObj.checkFunc(true);
+	});
 </script>
 
 <style>

@@ -29,6 +29,13 @@ export const useMainStore = defineStore("main", () => {
 		id: 1,
 	});
 
+	const passObj = ref({
+		info: "",
+		password: "",
+		button: "Open",
+		checkFunc: async (first = false) => {},
+	});
+
 	let saved = ref(true);
 
 	const closeEditor = () => {
@@ -168,6 +175,7 @@ export const useMainStore = defineStore("main", () => {
 		uiMode,
 		saved,
 
+		passObj,
 		editorObj,
 		closeEditor,
 		openEditor,
