@@ -3,7 +3,6 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ahmedkapro/journalv/Release?style=flat-square)
 ![GitHub all releases](https://img.shields.io/github/downloads/ahmedkapro/journalv/total?color=blue&style=flat-square)
 
-
 ### JournalV
 
 App for journaling your days and dreams, being made with ~~Electron~~ Tauri and Vue.
@@ -29,15 +28,3 @@ There are two ways to get the app:
 <hr />
 
 ### Preview
-
-- Opening an entry and editing it:
-
-  ![editor preview](assets/jv-open.gif)
-
-- Searching through entries, by tags, date, and type:
-
-  ![search preview](assets/jv-search.gif)
-
-- Going to app menu, changing accent, and creating new entries:
-
-  ![menu preview](assets/jv-menu.gif)
