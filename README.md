@@ -5,11 +5,13 @@
 
 ### JournalV
 
-App for journaling your days and dreams, being made with ~~Electron~~ Tauri and Vue.
+Journaling app your days and dreams, being built with ~~Electron~~ Tauri and Vue.
 
 ![app icon](assets/jv-icon-sm.png)
 
+<br />
 <hr />
+<br />
 
 ### Features
 
@@ -17,14 +19,53 @@ App for journaling your days and dreams, being made with ~~Electron~~ Tauri and 
 - Do dream journaling and keep the contents of your dreams.
 - Search through your entries for tags and titles, and look back on them.
 
+<br />
 <hr />
+<br />
 
 ### Install
 
 There are two ways to get the app:
 
-- Grab a binary from the [releases page](https://github.com/ahmedkapro/journalv/releases) (builds are automated, and not tested currently).
-- Clone repo, go into, and run `npm run tauri build`. Finished binaries will be in the target directory.
+1. Grab a binary from the [releases page](https://github.com/ahmedkapro/journalv/releases) (builds are automated, and not tested currently).
+2. Clone repo, go into, and run `npm run tauri build`. Finished binaries will be in the target directory.
+
+<br />
 <hr />
+<br />
 
 ### Preview
+
+Here we go through some of the app screens and the showcase the features graphically.
+
+- The main menu of the app, containing tips and options:
+
+  ![peview1](assets/jv1.png)
+
+- We can change the accent colour here:
+  
+  ![peview2](assets/jv2.png)
+  
+- Also can add entries, which we have here, adding a title and some content:
+  
+  ![peview3](assets/jv3.png)
+ 
+- We can add tags to entries, too, for easy searches:
+  
+  ![peview4](assets/jv4.png)
+
+- The search screen displays all entries stored, and search can be done through them:
+
+  ![peview5](assets/jv5.png)
+
+- Just typing will search through the titles only:
+  
+  ![peview6](assets/jv6.png)
+  
+- We can search using tags with the '#' prefix (other prefixes can be found in the menu):
+  
+  ![peview7](assets/jv7.png)
+  
+- Saving and loading data depends on your password:
+  
+  ![peview8](assets/jv8.png)
