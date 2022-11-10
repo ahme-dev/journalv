@@ -1,4 +1,17 @@
 <template>
+	<div v-if="loading" class="passwordbox">
+		<p>
+			{{ info }}
+		</p>
+		<input
+			type="password"
+			@keyup.enter="confirmPass()"
+			v-model="password"
+			placeholder="password"
+		/>
+		<button>Open</button>
+	</div>
+
 	<SearchList v-if="store.uiMode == 'search'"></SearchList>
 	<AppMenu v-else-if="store.uiMode == 'menu'"></AppMenu>
 	<EntryEditor v-else></EntryEditor>
@@ -11,21 +24,43 @@
 	import SearchList from "./components/SearchList.vue";
 	import MainBar from "./components/MainBar.vue";
 
-	import { onMounted } from "vue";
+	import { onMounted, ref } from "vue";
 	import { useMainStore } from "./store";
 	import AppMenu from "./components/AppMenu.vue";
 
 	const store = useMainStore();
 
-	// on app load
+	const info = ref("");
+	const password = ref("");
+	const loading = ref(true);
+
 	onMounted(async () => {
+		confirmPass(true);
+	});
+
+	const confirmPass = async (first = false) => {
 		// import app data
-		await store.importData();
+		let res = await store.importData(password.value);
+
+		// if couldn't open file
+		if (res == "error") {
+			switch (first) {
+				case true:
+					info.value = "Enter password to import data:";
+					return;
+				case false:
+					info.value = "Entered password was wrong!";
+					return;
+			}
+		}
+
 		// first time search to show default result
 		store.updateShownEntries("");
 		// load selected accent colour
 		store.loadAccent();
-	});
+		// finish loading
+		loading.value = false;
+	};
 </script>
 
 <style>
@@ -33,7 +68,6 @@
 		--bg: #111;
 		--fg: #eee;
 		--main: rgba(70, 70, 70, 0.2);
-		/* will be modified by a function */
 		--accent: "#22bb66";
 	}
 
@@ -95,5 +129,42 @@
 
 	#app > .bar {
 		flex-grow: 0;
+	}
+
+	/* password screen */
+
+	.passwordbox {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100vh;
+		width: 100vw;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+
+		background-color: var(--bg) !important;
+	}
+
+	p,
+	input,
+	button {
+		padding: 1rem 2rem;
+		border-radius: 1rem;
+		font-size: 1rem;
+		font-weight: bold;
+
+		background-color: var(--main);
+
+		transition: 0.2s ease-out;
+	}
+
+	button:hover {
+		cursor: pointer;
+		color: var(--bg);
+		background-color: var(--fg);
 	}
 </style>

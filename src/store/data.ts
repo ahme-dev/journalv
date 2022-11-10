@@ -52,12 +52,16 @@ export const exportData = async () => {
 	});
 };
 
-export const importData = async () => {
-	await invoke("read_data", { password: "magickey" }).then((res) => {
-		// don't do anything if no data was imported
-		if (res == "") return;
-
-		app = JSON.parse(res as string);
+export const importData = async (password: string): Promise<string> => {
+	return await invoke("read_data", { password: password }).then((res) => {
+		switch (res) {
+			case "empty":
+			case "error":
+				return res;
+			default:
+				app = JSON.parse(res as string);
+				return "okay";
+		}
 	});
 };
 
