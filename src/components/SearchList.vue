@@ -17,11 +17,7 @@
 	import SearchItem from "./SearchItem.vue";
 
 	import { useMainStore } from "../store";
-	import { computed } from "vue";
-
 	const store = useMainStore();
-
-	console.log(JSON.stringify(store.shownEntries));
 </script>
 
 <style scoped>
