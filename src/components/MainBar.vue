@@ -32,6 +32,9 @@
 	const searchTerm = ref("");
 
 	const saveClicked = () => {
+		// do nothing if there are no changes
+		if (store.saved) return;
+
 		// set password screen up
 		store.passObj.button = "Save";
 		store.passObj.info = "Enter password to encrypt with:";
@@ -49,9 +52,10 @@
 				return;
 			}
 
+			// set state to saved
+			store.saved = true;
 			// switch of out of password screen
 			store.uiMode = "search";
-
 			// remove password text
 			store.passObj.password = "";
 		};
