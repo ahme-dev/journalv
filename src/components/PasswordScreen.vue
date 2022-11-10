@@ -9,7 +9,9 @@
 			v-model="store.passObj.password"
 			placeholder="password"
 		/>
-		<button @click="store.passObj.checkFunc()">Open</button>
+		<button @click="store.passObj.checkFunc()">
+			{{ store.passObj.button }}
+		</button>
 	</div>
 </template>
 
