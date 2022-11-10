@@ -1,16 +1,5 @@
 <template>
-	<div v-if="store.uiMode == 'password'" class="passwordbox">
-		<p>
-			{{ store.passObj.info }}
-		</p>
-		<input
-			type="password"
-			@keyup.enter="store.passObj.checkFunc()"
-			v-model="store.passObj.password"
-			placeholder="password"
-		/>
-		<button>Open</button>
-	</div>
+	<PasswordScreen v-if="store.uiMode == 'password'"></PasswordScreen>
 
 	<SearchList v-if="store.uiMode == 'search'"></SearchList>
 	<AppMenu v-else-if="store.uiMode == 'menu'"></AppMenu>
@@ -24,9 +13,10 @@
 	import SearchList from "./components/SearchList.vue";
 	import MainBar from "./components/MainBar.vue";
 
-	import { onMounted, ref } from "vue";
+	import { onMounted } from "vue";
 	import { useMainStore } from "./store";
 	import AppMenu from "./components/AppMenu.vue";
+	import PasswordScreen from "./components/PasswordScreen.vue";
 
 	const store = useMainStore();
 
@@ -125,42 +115,5 @@
 
 	#app > .bar {
 		flex-grow: 0;
-	}
-
-	/* password screen */
-
-	.passwordbox {
-		position: absolute;
-		left: 0;
-		top: 0;
-		height: 100vh;
-		width: 100vw;
-
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 1rem;
-
-		background-color: var(--bg) !important;
-	}
-
-	p,
-	input,
-	button {
-		padding: 1rem 2rem;
-		border-radius: 1rem;
-		font-size: 1rem;
-		font-weight: bold;
-
-		background-color: var(--main);
-
-		transition: 0.2s ease-out;
-	}
-
-	button:hover {
-		cursor: pointer;
-		color: var(--bg);
-		background-color: var(--fg);
 	}
 </style>
