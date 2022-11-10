@@ -5,7 +5,7 @@
 
 ### JournalV
 
-Journaling app your days and dreams, being built with ~~Electron~~ Tauri and Vue.
+Journaling app for your days and dreams, being built with ~~Electron~~ Tauri and Vue.
 
 ![app icon](assets/jv-icon-sm.png)
 
@@ -43,15 +43,15 @@ Here we go through some of the app screens and the showcase the features graphic
   ![peview1](assets/jv1.png)
 
 - We can change the accent colour here:
-  
+
   ![peview2](assets/jv2.png)
-  
+
 - Also can add entries, which we have here, adding a title and some content:
-  
+
   ![peview3](assets/jv3.png)
- 
+
 - We can add tags to entries, too, for easy searches:
-  
+
   ![peview4](assets/jv4.png)
 
 - The search screen displays all entries stored, and search can be done through them:
@@ -59,13 +59,13 @@ Here we go through some of the app screens and the showcase the features graphic
   ![peview5](assets/jv5.png)
 
 - Just typing will search through the titles only:
-  
+
   ![peview6](assets/jv6.png)
-  
+
 - We can search using tags with the '#' prefix (other prefixes can be found in the menu):
-  
+
   ![peview7](assets/jv7.png)
-  
+
 - Saving and loading data depends on your password:
-  
+
   ![peview8](assets/jv8.png)

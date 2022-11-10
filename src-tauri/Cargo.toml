@@ -1,8 +1,8 @@
 [package]
 name = "journalv"
-version = "0.2.1"
+version = "0.3.0"
 authors = ["ahmed.systems"]
-description= "App for journaling your days and dreams."
+description= "Journaling app for your days and dreams."
 license = "BSD-3"
 repository = ""
 edition = "2021"
