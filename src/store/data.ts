@@ -45,21 +45,34 @@ export const getAccent = () => {
 
 // import and export data (invoking rust)
 
-export const exportData = async () => {
+export const exportData = async (password = "magickey"): Promise<string> => {
+	// see if this was the password used to decrypt data
+	let testRes = await importData(password, true);
+	// if not the same password, return error
+	if (testRes == "error") return "error";
+
+	// write the data
 	await invoke("write_data", {
 		data: JSON.stringify(app),
-		password: "magickey",
+		password: password,
 	});
+
+	// return okay
+	return "okay";
 };
 
-export const importData = async (password: string): Promise<string> => {
+export const importData = async (
+	password: string,
+	test = false
+): Promise<string> => {
 	return await invoke("read_data", { password: password }).then((res) => {
 		switch (res) {
 			case "empty":
 			case "error":
 				return res;
 			default:
-				app = JSON.parse(res as string);
+				// make changes to data only if not testing password
+				if (!test) app = JSON.parse(res as string);
 				return "okay";
 		}
 	});
