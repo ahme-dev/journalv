@@ -10,7 +10,7 @@
 		<!-- title -->
 		<div class="title">
 			<h2>JournalV</h2>
-			<a href="http://github.com/ahmeddotsahmeddots/journalv" target="_blank">source</a>
+			<a href="http://github.com/ahmeddots/journalv" target="_blank">source</a>
 		</div>
 		<!-- title end -->
 		<!-- tips -->
