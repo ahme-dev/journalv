@@ -1,7 +1,7 @@
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ahmedkapro/journalv?color=red&include_prereleases&style=flat-square)
-![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/ahmedkapro/journalv/@tauri-apps/api?label=tauri&style=flat-square&color=red)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ahmedkapro/journalv/Release?style=flat-square)
-![GitHub all releases](https://img.shields.io/github/downloads/ahmedkapro/journalv/total?color=blue&style=flat-square)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ahmeddots/journalv?color=red&include_prereleases&style=flat-square)
+![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/ahmeddots/journalv/@tauri-apps/api?label=tauri&style=flat-square&color=red)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ahmeddots/journalv/Release?style=flat-square)
+![GitHub all releases](https://img.shields.io/github/downloads/ahmeddots/journalv/total?color=blue&style=flat-square)
 
 ### JournalV
 
@@ -27,7 +27,7 @@ Journaling app for your days and dreams, being built with ~~Electron~~ Tauri and
 
 There are two ways to get the app:
 
-1. Grab a binary from the [releases page](https://github.com/ahmedkapro/journalv/releases) (builds are automated, and not tested currently).
+1. Grab a binary from the [releases page](https://github.com/ahmeddots/journalv/releases) (builds are automated, and not tested currently).
 2. Clone repo, go into, and run `npm run tauri build`. Finished binaries will be in the target directory.
 
 <br />
